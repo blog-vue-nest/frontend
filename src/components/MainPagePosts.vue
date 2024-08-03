@@ -52,10 +52,35 @@ export default{
           2xl:text-[14px] 2xl:rounded-[8px] 2xl:py-[16px] 2xl:px-[48px]">View all</button>
         </div>
 
-        <div class="mt-[37px] mb-[57px] mx-[19px] flex flex-col items-center gap-[45px]">
-          <article class="w-[287px]">
+        <div class="hidden lg:block mt-[64px] 2xl:mt-[90px]"> 
+<article class="flex gap-[40px]">
+        <div class="w-[60%] 2xl:w-[55%]">
+          <!-- <img src="../assets/img/main-post.jpg" class="w-[293px] h-[200px] object-cover rounded-[5.5px]" alt="VR"> -->
+           <img src="../assets/img/main-post.jpg" class="w-full h-[427px] 2xl:h-[547px] object-cover rounded-[16px]" alt="VR">
+        </div>
+        <div class="mt-[12px] w-[40%] 2xl:mt-[16px] 2xl:w-[45%]">
+          <div class="flex gap-[5.74px] text-[8.6px] 2xl:text-[12px] leading-[150%]">
+            <span class="uppercase font-roboto-700 text-dark">Development</span>
+            <span class="font-roboto-500 text-light-gray">16 March 2023</span>
+          </div>
+          <h3 class="mt-[20px] font-raleway-700 text-dark text-[23px] leading-[24.3px] tracking-[-0.71px]
+          2xl:mt-[27px] 2xl:text-[32px] 2xl:leading-[45px] 2xl:tracking-[-1px]">How to make a Game look more attractive with New VR & AI Technology</h3>
+          <p class="mt-[10px] font-roboto-400 text-dark-gray text-[12px] leading-[150%] 2xl:mt-[13px] 2xl:text-[16px]">Google has been investing in AI for many years and bringing its benefits to individuals, businesses and communities. Whether it’s publishing state-of-the`everyone.
+</p>
+          <button class="mt-[45px] border-[0.718px] border-violet rounded-[5.744px] px-[35px] py-[12px] capitalize font-roboto-700 text-[10px] leading-[150%] text-violet
+          2xl:mt-[61px] 2xl:text-[14px] 2xl:px-[48px] 2xl:py-[16px] 2xl:rounded-[8px]">Read more</button>
+        </div>
+      </article>
+          <div>
+
+          </div>
+        </div>
+
+        <!-- <div class="mt-[37px] mb-[57px] mx-[19px] flex flex-col items-center gap-[45px]"> -->
+          <div class="mt-[37px] mb-[57px] mx-[19px] md:mx-0 grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-y-[45px] lg:gap-y-[28px] lg:gap-x-[12px]">
+          <article class="w-auto">
             <div>
-              <img class="w-[287px] h-[258px] object-cover rounded-[12px]"src="../assets/img/plane.jpg" alt="Plane">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/plane.jpg" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
               <span class="font-roboto-700 text-dark">Travel</span>
@@ -66,9 +91,9 @@ export default{
             <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
           </article>
 
-          <article class="w-[287px]">
+          <article class="w-auto">
             <div>
-              <img class="w-[287px] h-[258px] object-cover rounded-[12px]"src="../assets/img/Macbook.jpg" alt="Macbook">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/Macbook.jpg" alt="Macbook">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
               <span class="font-roboto-700 text-dark">DEVELOPMENT</span>
@@ -79,9 +104,50 @@ export default{
             <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
           </article>
 
-          <article class="w-[287px]">
+          <article class="w-auto">
             <div>
-              <img class="w-[287px] h-[258px] object-cover rounded-[12px]"src="../assets/img/ball.jpg" alt="Ball">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/ball.jpg" alt="Ball">
+            </div>
+            <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
+              <span class="font-roboto-700 text-dark">Sports</span>
+              <span class="font-roboto-500 text-light-gray">10 March 2023</span>
+            </div>
+            <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums">How to Be a Professional Footballer in 2023</h3>
+            <p class="mt-[5px] font-roboto-400 text-dark-gray text-[12px] leading-[150%]">Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment. survival strategies to ensure proactive</p>
+            <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
+          </article>
+
+
+
+           <article class="w-auto">
+            <div>
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/plane.jpg" alt="Plane">
+            </div>
+            <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
+              <span class="font-roboto-700 text-dark">Travel</span>
+              <span class="font-roboto-500 text-light-gray">13 March 2023</span>
+            </div>
+            <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums">8 Rules of Travelling In Sea You Need To Know</h3>
+            <p class="mt-[5px] font-roboto-400 text-dark-gray text-[12px] leading-[150%]">Travelling in sea has many advantages. Some of the advantages of transporting goods by sea include: you can ship large volumes at costs </p>
+            <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
+          </article>
+
+          <article class="w-auto">
+            <div>
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/Macbook.jpg" alt="Macbook">
+            </div>
+            <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
+              <span class="font-roboto-700 text-dark">DEVELOPMENT</span>
+              <span class="font-roboto-500 text-light-gray">11 March 2023</span>
+            </div>
+            <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums">How to build strong portfolio and get a Job in UI/UX</h3>
+            <p class="mt-[5px] font-roboto-400 text-dark-gray text-[12px] leading-[150%]">Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from </p>
+            <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
+          </article>
+
+          <article class="w-auto">
+            <div>
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/ball.jpg" alt="Ball">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
               <span class="font-roboto-700 text-dark">Sports</span>
@@ -104,10 +170,10 @@ export default{
           2xl:text-[14px] 2xl:rounded-[8px] 2xl:py-[16px] 2xl:px-[48px]">View all</button>
         </div>
 
-        <div class="mt-[37px] mb-[57px] mx-[19px] flex flex-col items-center gap-[45px]">
-          <article class="w-[287px]">
+       <div class="mt-[37px] mb-[57px] mx-[19px] grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-y-[45px] lg:gap-y-[28px] lg:gap-x-[12px]">
+          <article class="w-auto">
             <div>
-              <img class="w-[287px] h-[258px] object-cover rounded-[12px]"src="../assets/img/plane.jpg" alt="Plane">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/plane.jpg" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
               <span class="font-roboto-700 text-dark">Travel</span>
@@ -118,9 +184,9 @@ export default{
             <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
           </article>
 
-          <article class="w-[287px]">
+          <article class="w-auto">
             <div>
-              <img class="w-[287px] h-[258px] object-cover rounded-[12px]"src="../assets/img/Macbook.jpg" alt="Macbook">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/Macbook.jpg" alt="Macbook">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
               <span class="font-roboto-700 text-dark">DEVELOPMENT</span>
@@ -131,9 +197,50 @@ export default{
             <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
           </article>
 
-          <article class="w-[287px]">
+          <article class="w-auto">
             <div>
-              <img class="w-[287px] h-[258px] object-cover rounded-[12px]"src="../assets/img/ball.jpg" alt="Ball">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/ball.jpg" alt="Ball">
+            </div>
+            <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
+              <span class="font-roboto-700 text-dark">Sports</span>
+              <span class="font-roboto-500 text-light-gray">10 March 2023</span>
+            </div>
+            <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums">How to Be a Professional Footballer in 2023</h3>
+            <p class="mt-[5px] font-roboto-400 text-dark-gray text-[12px] leading-[150%]">Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment. survival strategies to ensure proactive</p>
+            <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
+          </article>
+
+
+
+           <article class="w-auto">
+            <div>
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/plane.jpg" alt="Plane">
+            </div>
+            <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
+              <span class="font-roboto-700 text-dark">Travel</span>
+              <span class="font-roboto-500 text-light-gray">13 March 2023</span>
+            </div>
+            <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums">8 Rules of Travelling In Sea You Need To Know</h3>
+            <p class="mt-[5px] font-roboto-400 text-dark-gray text-[12px] leading-[150%]">Travelling in sea has many advantages. Some of the advantages of transporting goods by sea include: you can ship large volumes at costs </p>
+            <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
+          </article>
+
+          <article class="w-auto">
+            <div>
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/Macbook.jpg" alt="Macbook">
+            </div>
+            <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
+              <span class="font-roboto-700 text-dark">DEVELOPMENT</span>
+              <span class="font-roboto-500 text-light-gray">11 March 2023</span>
+            </div>
+            <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums">How to build strong portfolio and get a Job in UI/UX</h3>
+            <p class="mt-[5px] font-roboto-400 text-dark-gray text-[12px] leading-[150%]">Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from </p>
+            <button class="mt-[14px] capitalize font-roboto-700 text-violet text-[13px] leading-[150%] underline">Read more...</button>
+          </article>
+
+          <article class="w-auto">
+            <div>
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px]"src="../assets/img/ball.jpg" alt="Ball">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%]">
               <span class="font-roboto-700 text-dark">Sports</span>
