@@ -1,0 +1,13 @@
+{
+  "HeaderBlock": {
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact us"
+  },
+  "FeaturedPostBlock": {
+    "name": "Featured post",
+    "tittle": "How AI will Change the Future",
+    "text": "The future of AI will see home robots having enhanced intelligence, increased capabilities, and becoming more personal and possibly cute. For example, home robots will overcome navigation, direction",
+    "button": "Read more"
+  }
+}
