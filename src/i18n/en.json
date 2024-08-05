@@ -9,5 +9,11 @@
     "tittle": "How AI will Change the Future",
     "text": "The future of AI will see home robots having enhanced intelligence, increased capabilities, and becoming more personal and possibly cute. For example, home robots will overcome navigation, direction",
     "button": "Read more"
+  },
+  "SubscribeBlock": {
+    "title": "Get our stories delivered From us to your inbox weekly.",
+    "input": "Your email",
+    "button": "Get started",
+    "paragraph": "Get a response tomorrow if you submit by 9pm today. If we received after 9pm will get a response the following day."
   }
 }
