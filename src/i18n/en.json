@@ -15,5 +15,21 @@
     "input": "Your email",
     "button": "Get started",
     "paragraph": "Get a response tomorrow if you submit by 9pm today. If we received after 9pm will get a response the following day."
+  },
+  "FooterBlock": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact us",
+    "copyright": "Copyright Ideapeel Inc © 2023. All Right Reserved"
+  },
+  "BlogsBlock": {
+    "name": "OUR BLOGS",
+    "title": "Find our all blogs from here",
+    "describe": "our blogs are written from very research research and well known writers writers so that  we can provide you the best blogs and articles articles for you to read them all along"
+  },
+  "Contact": {
+    "title": "Get in Touch",
+    "describe": "Contact us to publish your content and show ads to our website and get a good reach."
   }
 }
