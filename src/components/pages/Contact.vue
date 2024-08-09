@@ -4,13 +4,13 @@ import Header from '../Header.vue'
 
 import Subscribe from '../Subscribe.vue';
 import Footer from '../Footer.vue';
-import ContactBlock from '../ContactBlock.vue';
+import ContactComponent from '../ContactComponent.vue';
 // import { useI18n } from "vue-i18n";
 
 // const {t} = useI18n({useScope: 'global'})
 
 export default {
-  components: { Header, ContactBlock, Subscribe, Footer},
+  components: { Header, ContactComponent, Subscribe, Footer},
   data() {
     return {
     }
@@ -20,7 +20,7 @@ export default {
 
 <template>
   <Header />
-  <ContactBlock />
+  <ContactComponent />
   <Subscribe />
   <Footer />
 </template>

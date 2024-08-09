@@ -13,7 +13,9 @@ export default {
         'raleway-600': ['Raleway-SemiBold', 'sans-serif'],
         'raleway-500': ['Raleway-Medium', 'sans-serif'],
         'raleway-italic': ['Raleway-Italic', 'sans-serif'],
-
+      },
+      backgroundImage: {
+        'contact-map': "url('./src/assets/img/contact-map.jpg')"
       }
     },
     container: {

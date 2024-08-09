@@ -26,10 +26,39 @@
   "BlogsBlock": {
     "name": "OUR BLOGS",
     "title": "Find our all blogs from here",
-    "describe": "our blogs are written from very research research and well known writers writers so that  we can provide you the best blogs and articles articles for you to read them all along"
+    "describe": "Our blogs are written from very research research and well known writers writers so that  we can provide you the best blogs and articles articles for you to read them all along"
   },
   "Contact": {
     "title": "Get in Touch",
     "describe": "Contact us to publish your content and show ads to our website and get a good reach."
+  },
+  "About": {
+    "FirstSection": {
+      "name": "About us",
+      "title": "Creative Blog Writting and publishing site",
+      "description": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition."
+    },
+    "HowWeWork": {
+      "name": "How we work",
+      "title": "I will show you how our team works",
+      "description": "Bring to the table win-win market strategies to ensure perfect articles."
+    },
+    "AboutCard1": {
+      "number": "01",
+      "title": "Brainstorming",
+      "text": "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated",
+      "button": "Read more"
+    },
+    "AboutCard2": {
+      "number": "02",
+      "title": "Analysing",
+      "text": "Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line solely on the bottom line.",
+      "button": "Read more"
+    },
+    "AboutCard3": {
+      "number": "03",
+      "title": "News Publishing",
+      "text": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment."
+    }
   }
 }
