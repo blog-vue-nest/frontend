@@ -1,21 +1,5 @@
-<script>
-// import { defineComponent } from 'vue';
+<script setup>
 // import { Icon } from '@iconify/vue';
-
-export default{
-  name: 'MainPagePosts',
-  // components: {
-  //   Icon,
-  // },
-  data() {
-    
-    return {
-
-    }
-
-  }
-
-}
 
 </script>
 

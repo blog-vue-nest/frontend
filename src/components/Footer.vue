@@ -1,22 +1,6 @@
-<script>
+<script setup>
 // import { defineComponent } from 'vue';
 import { Icon } from '@iconify/vue';
-
-export default{
-  name: 'Footer',
-  components: {
-    Icon,
-  },
-  data() {
-    
-    return {
-
-    }
-
-  }
-
-}
-
 </script>
 
 <template>

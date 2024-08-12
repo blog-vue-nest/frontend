@@ -14,9 +14,9 @@ export default {
         'raleway-500': ['Raleway-Medium', 'sans-serif'],
         'raleway-italic': ['Raleway-Italic', 'sans-serif'],
       },
-      backgroundImage: {
-        'contact-map': "url('./src/assets/img/contact-map.jpg')"
-      }
+      // backgroundImage: {
+      //   'contact-map': "url('./src/assets/img/contact-map.jpg')"
+      // }
     },
     container: {
       center: true,

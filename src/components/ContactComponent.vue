@@ -1,21 +1,5 @@
-<script>
-// import { defineComponent } from 'vue';
+<script setup>
 import { Icon } from '@iconify/vue';
-
-export default{
-  name: 'ContactComponent',
-  components: {
-    Icon,
-  },
-  data() {
-    
-    return {
-
-    }
-
-  }
-
-}
 
 </script>
 
@@ -65,10 +49,63 @@ export default{
         </div>
       </section>
 
-      <section class="mt-[73px]">
-          <!-- <div class="w-[100vw] h-[382px] ml-[50%] translate-x-[-50%] bg-contact-map"></div> -->
-           <div class="w-[100vw] h-[382px] 2xl:h-[547px] ml-[50%] translate-x-[-50%]" 
-           style="background: url('./src/assets/img/contact-map.jpg') 50% / cover no-repeat, lightgray"></div>
+      <section class="mt-[73px] mb-[600px] md:mb-[380px] 2xl:mb-[400px] relative">  
+        <div class="map w-[100vw] h-[382px] 2xl:h-[547px] ml-[50%] translate-x-[-50%]"></div>
+
+        <div class="mx-auto absolute bottom-[-158%] md:bottom-[-112%] 2xl:bottom-[-95%] left-0 right-0 w-[327px] bg-white rounded-[12px] shadow-[4.888px_5.586px_37.708px_0px_rgba(124,78,228,0.07)]
+        px-[55px] pt-[45px] pb-[45px] 
+        md:w-[536px] md:px-[44px] md:py-[50px]
+        2xl:w-[768px] 2xl:pt-[71px] 2xl:pb-[65px] 2xl:px-[62px] 2xl:rounded-[16px] 2xl:shadow-[7px_8px_54px_0px_rgba(124,78,228,0.07)]">
+          <form action="#">
+            <div class="grid grid-cols-1 gap-y-[20px] md:grid-cols-2 md:gap-x-[15px] 2xl:gap-x-[21px]">
+              <label class="font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+              2xl:text-[16px] 2xl:tracking-[0.08px]" for="">
+                {{ $t('Contact.ContactForm.name') }}
+                <input type="text" class="mt-[5px] w-full py-[5px] px-[10px] border-[0.698px] bg-white border-[#C4C4C4] rounded-[6px] outline-none
+                font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+                2xl:mt-[8px] 2xl:text-[16px] 2xl:tracking-[0.08px] 2xl:border-[1px] 2xl:rounded-[8px]">
+              </label>
+
+              <label class="font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+               2xl:text-[16px] 2xl:tracking-[0.08px]" for="">
+                {{ $t('Contact.ContactForm.phone') }}
+                <input type="text" class="mt-[5px] w-full py-[5px] px-[10px] border-[0.698px] bg-white border-[#C4C4C4] rounded-[6px] outline-none
+                font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+                2xl:mt-[8px] 2xl:text-[16px] 2xl:tracking-[0.08px] 2xl:border-[1px] 2xl:rounded-[8px]">
+              </label>
+            </div>
+
+            <div class="grid grid-cols-1 gap-y-[20px] md:mt-[15px] md:grid-cols-2 md:gap-x-[15px] 2xl:mt-[22px] 2xl:gap-x-[21px]">
+              <label class="mt-[20px] font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+              md:m-0 2xl:text-[16px] 2xl:tracking-[0.08px]" for="">
+                {{ $t('Contact.ContactForm.email') }}
+                <input type="email" class="mt-[5px] w-full py-[5px] px-[10px] border-[0.698px] bg-white border-[#C4C4C4] rounded-[6px] outline-none
+                font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+                2xl:mt-[8px] 2xl:text-[16px] 2xl:tracking-[0.08px] 2xl:border-[1px] 2xl:rounded-[8px]">
+              </label>
+
+              <label class="font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+              2xl:text-[16px] 2xl:tracking-[0.08px]" for="">
+                {{ $t('Contact.ContactForm.subject') }}
+                <input type="text" class="mt-[5px] w-full py-[5px] px-[10px] border-[0.698px] bg-white border-[#C4C4C4] rounded-[6px] outline-none
+                font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+                2xl:mt-[8px] 2xl:text-[16px] 2xl:tracking-[0.08px] 2xl:border-[1px] 2xl:rounded-[8px]">
+              </label>
+            </div>
+
+            <label class="block mt-[20px] font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+            md:mt-[15px] 2xl:mt-[22px] 2xl:text-[16px] 2xl:tracking-[0.08px]" for="">
+                {{ $t('Contact.ContactForm.message') }}
+                <textarea type="text" class="resize-none mt-[5px] w-full h-[164px] py-[5px] px-[10px] border-[0.698px] bg-white border-[#C4C4C4] rounded-[6px] outline-none
+                font-raleway-600 text-[#4C4C4C] text-[12px] leading-[175%] tracking-[0.056px]
+                2xl:mt-[8px] 2xl:text-[16px] 2xl:tracking-[0.08px] 2xl:border-[1px] 2xl:rounded-[8px]"></textarea>
+              </label>
+            
+            <button class="capitalize block mt-[30px] mx-auto px-[22px] py-[12px] rounded-[4px] bg-violet font-raleway-700 text-white text-[12px]
+              md:text-[13px] md:mt-[35px] 2xl:mt-[42px] 2xl:px-[36px] 2xl:py-[21px] 2xl:text-[15px]
+              ">{{ $t('Contact.ContactForm.button') }}</button>
+          </form>
+        </div>
       </section>
     </div>
   </div>
@@ -76,4 +113,14 @@ export default{
 </template>
 
 <style scoped>
+.map {
+  /* background: url('./src/assets/img/contact-map.jpg') -233px -149.959px / 229.888% 178.504% no-repeat, #D9D9D9; */
+  background: url('./src/assets/img/contact-map.jpg') 42% 70% / 249.888% 138.504% no-repeat, #D9D9D9;
+}
+
+@media screen and (min-width: 376px) {
+.map {
+  background: url('./src/assets/img/contact-map.jpg') 50% / cover no-repeat, #D9D9D9;
+}
+}
 </style>

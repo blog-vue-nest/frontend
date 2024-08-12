@@ -30,7 +30,15 @@
   },
   "Contact": {
     "title": "Get in Touch",
-    "describe": "Contact us to publish your content and show ads to our website and get a good reach."
+    "describe": "Contact us to publish your content and show ads to our website and get a good reach.",
+    "ContactForm": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "button": "Send message"
+    }
   },
   "About": {
     "FirstSection": {

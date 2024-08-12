@@ -1,23 +1,7 @@
-<script>
+<script setup>
 // import { defineComponent } from 'vue';
 import { Icon } from '@iconify/vue';
 import { RouterLink } from 'vue-router';
-
-export default{
-  name: 'Header',
-  components: {
-    Icon,
-  },
-  data() {
-    
-    return {
-
-    }
-
-  }
-
-}
-
 </script>
 
 <template>

@@ -1,16 +1,4 @@
-<script>
-// import { defineComponent } from 'vue';
-// import { Icon } from '@iconify/vue';
-export default {
-  name: 'Subscribe',
-  data() {
-   
-    return {
-
-    }
-  }
-
-}
+<script setup>
 
 </script>
 

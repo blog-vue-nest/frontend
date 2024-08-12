@@ -1,20 +1,9 @@
-<script>
+<script setup>
 // import { defineComponent } from 'vue'
 import Header from '../Header.vue';
 import Subscribe from '../Subscribe.vue';
 import Footer from '../Footer.vue';
 import AboutComponent from '../AboutComponent.vue';
-// import { useI18n } from "vue-i18n";
-
-// const {t} = useI18n({useScope: 'global'})
-
-export default {
-  components: { Header, AboutComponent ,Subscribe, Footer},
-  data() {
-    return {
-    }
-  }
-};
 </script>
 
 <template>

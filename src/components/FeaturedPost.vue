@@ -1,21 +1,6 @@
-<script>
+<script setup>
 // import { defineComponent } from 'vue';
-import { Icon } from '@iconify/vue';
-
-export default{
-  name: 'FeaturedPost',
-    components: {
-    Icon,
-  },
-  data() {
-    return {
-
-    }
-
-  }
-
-}
-
+// import { Icon } from '@iconify/vue';
 </script>
 
 <template>

@@ -1,23 +1,5 @@
-<script>
-// import { defineComponent } from 'vue';
-import { Icon } from '@iconify/vue';
-import About from './pages/About.vue';
-
-export default{
-  name: 'AboutComponent',
-  components: {
-    Icon,
-  },
-  data() {
-    
-    return {
-
-    }
-
-  }
-
-}
-
+<script setup>
+// import { Icon } from '@iconify/vue';
 </script>
 
 <template>

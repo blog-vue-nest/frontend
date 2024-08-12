@@ -1,21 +1,4 @@
-<script>
-// import { defineComponent } from 'vue';
-// import { Icon } from '@iconify/vue';
-
-export default{
-  name: 'Blogs',
-  // components: {
-  //   Icon,
-  // },
-  data() {
-    
-    return {
-
-    }
-
-  }
-
-}
+<script setup>
 
 </script>
 
