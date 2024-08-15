@@ -9,7 +9,7 @@
       <article class="relative px-[17px] pt-[20px] pb-[28px] border border-[#DBDBDB] rounded-[11.488px] md:p-0 md:border-none">
         <div>
           <!-- <img src="../assets/img/main-post.jpg" class="w-[293px] h-[200px] object-cover rounded-[5.5px]" alt="VR"> -->
-           <img src="../assets/img/main-post.jpg" class="w-[100%] h-[50vw] object-cover rounded-[5.5px] md:rounded-[12px] 2xl:rounded-[16px]
+           <img src="../assets/img/posts/main-post.jpg" class="w-[100%] h-[50vw] object-cover rounded-[5.5px] md:rounded-[12px] 2xl:rounded-[16px]
            md:h-[35vw]" alt="VR">
         </div>
         <div class="mt-[26.7px] bg-white md:absolute md:bottom-[-80px] md:right-0 2xl:bottom-[-140px] md:w-[70%] md:rounded-[11.488px] md:px-[23px] lg:pr-[75px] md:pt-[23px] md:mb-[30px]
@@ -40,7 +40,7 @@
 <article class="flex gap-[40px]">
         <div class="w-[60%] 2xl:w-[55%]">
           <!-- <img src="../assets/img/main-post.jpg" class="w-[293px] h-[200px] object-cover rounded-[5.5px]" alt="VR"> -->
-           <img src="../assets/img/main-post.jpg" class="w-full h-[427px] 2xl:h-[547px] object-cover rounded-[16px]" alt="VR">
+           <img src="../assets/img/posts/main-post.jpg" class="w-full h-[427px] 2xl:h-[547px] object-cover rounded-[16px]" alt="VR">
         </div>
         <div class="mt-[12px] w-[40%] 2xl:mt-[16px] 2xl:w-[45%]">
           <div class="flex gap-[5.74px] text-[8.6px] 2xl:text-[12px] leading-[150%]">
@@ -61,7 +61,7 @@
           <div class="mt-[37px] mb-[57px] mx-[19px] md:mx-0 grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-y-[45px] lg:gap-y-[28px] lg:gap-x-[12px] 2xl:gap-y-[53px] 2xl:gap-x-[16px]">
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/plane.jpg" alt="Plane">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/plane.jpg" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">Travel</span>
@@ -75,7 +75,7 @@
 
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/Macbook.jpg" alt="Macbook">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/mac.jpg" alt="Macbook">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">DEVELOPMENT</span>
@@ -89,7 +89,7 @@
 
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/ball.jpg" alt="Ball">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/ball.jpg" alt="Ball">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">Sports</span>
@@ -105,7 +105,7 @@
 
  <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/plane.jpg" alt="Plane">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/plane.jpg" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">Travel</span>
@@ -119,7 +119,7 @@
 
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/Macbook.jpg" alt="Macbook">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/mac.jpg" alt="Macbook">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">DEVELOPMENT</span>
@@ -133,7 +133,7 @@
 
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/ball.jpg" alt="Ball">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/ball.jpg" alt="Ball">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">Sports</span>
@@ -160,7 +160,7 @@
        <div class="mt-[37px] mb-[57px] mx-[19px] md:mx-0 grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-y-[45px] lg:gap-y-[28px] lg:gap-x-[12px] 2xl:gap-y-[53px] 2xl:gap-x-[16px]">
            <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/plane.jpg" alt="Plane">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/plane.jpg" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">Travel</span>
@@ -174,7 +174,7 @@
 
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/Macbook.jpg" alt="Macbook">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/mac.jpg" alt="Macbook">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">DEVELOPMENT</span>
@@ -188,7 +188,7 @@
 
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/ball.jpg" alt="Ball">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/ball.jpg" alt="Ball">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">Sports</span>
@@ -204,7 +204,7 @@
 
  <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/plane.jpg" alt="Plane">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/plane.jpg" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">Travel</span>
@@ -221,7 +221,7 @@
           
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/Macbook.jpg" alt="Macbook">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/mac.jpg" alt="Macbook">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">DEVELOPMENT</span>
@@ -235,7 +235,7 @@
 
           <article class="w-auto">
             <div>
-              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/ball.jpg" alt="Ball">
+              <img class="w-[100%] max-h-[258px] 2sm:max-h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]"src="../assets/img/posts/ball.jpg" alt="Ball">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span class="font-roboto-700 text-dark">Sports</span>
