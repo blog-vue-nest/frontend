@@ -6,7 +6,7 @@ import { Icon } from '@iconify/vue';
 <template>
   <footer>
     <div class="container px-[24px] pt-[36px] pb-[61px] md:px-[75px] md:pb-[39px] 2xl:px-[100px] 2xl:pt-[51px] 2xl:pb-[54px] flex flex-col items-center">
-      <router-link to="/">
+      <router-link :to="{name: 'Home'}">
         <div class="flex items-center gap-[11px] 2xl:gap-[15px] hover:cursor-pointer">
           <Icon icon="rz:zarrin" class="w-[32px] h-[32px] 2xl:w-[44px] 2xl:h-[44px]" />
           <span class="font-raleway-800 text-[24px] text-[#150E06] 2xl:text-[34px]">Zarrin</span>
@@ -20,13 +20,13 @@ import { Icon } from '@iconify/vue';
             <a href="#"><li class="font-raleway-600 text-[12px] 2xl:text-[16px] leading-[150%] text-[#150E06]">{{ $t('FooterBlock.about') }}</li></a>
             <a href="#"><li class="font-raleway-600 text-[12px] 2xl:text-[16px] leading-[150%] text-[#150E06]">{{ $t('FooterBlock.contact') }}</li></a> -->
             <li class="font-raleway-600 text-[12px] 2xl:text-[16px] leading-[150%] text-[#150E06]">
-              <router-link to="/">{{ $t('FooterBlock.home') }}</router-link></li>
+              <router-link :to="{name: 'Home'}">{{ $t('FooterBlock.home') }}</router-link></li>
             <li class="font-raleway-600 text-[12px] 2xl:text-[16px] leading-[150%] text-[#150E06]">
-              <router-link to="/blogs">{{ $t('FooterBlock.blog') }}</router-link></li>
+              <router-link :to="{name: 'BlogList'}">{{ $t('FooterBlock.blog') }}</router-link></li>
             <li class="font-raleway-600 text-[12px] 2xl:text-[16px] leading-[150%] text-[#150E06]">
-              <router-link to="/about">{{ $t('FooterBlock.about') }}</router-link></li>
+              <router-link :to="{name: 'About'}">{{ $t('FooterBlock.about') }}</router-link></li>
             <li class="font-raleway-600 text-[12px] 2xl:text-[16px] leading-[150%] text-[#150E06]">
-              <router-link to="/contact">{{ $t('FooterBlock.contact') }}</router-link></li>
+              <router-link :to="{name: 'Contact'}">{{ $t('FooterBlock.contact') }}</router-link></li>
           </nav>
         </menu>
 

@@ -1,20 +1,72 @@
 <script setup>
 // import { defineComponent } from 'vue';
 // import { Icon } from '@iconify/vue';
+
+import { ref, onMounted} from 'vue';
+import axios from 'axios';
+
+const popularPost = ref([]);
+
+const getPopularPost = async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/posts/get-recent');    
+    popularPost.value = response.data[0];    
+
+    // Загружаем категории для каждого поста
+    // await Promise.all(recentPosts.value.map(async (post) => {
+      
+    //   if (!categories.value[post.categoryId]) {
+    //     const category = await getCategory(post.categoryId);
+    //     categories.value[post.categoryId] = category;
+    //   }
+    // }));
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+  }
+};
+
+
+onMounted(() => {
+  getPopularPost()
+});
+
 </script>
 
 <template>
   <section class="relative bg-violet overflow-hidden">
     <div class="container flex flex-col gap-[58px] md:flex-row md:justify-between md:gap-[33px] 2xl:gap-[46px] font-raleway-700 px-[24px] py-[42px] md:px-[75px] md:pt-[87px] md:pb-[70px] 2xl:px-[100px] 2xl:pt-[120px] 2xl:pb-[98px]">
-      <div class="md:mt-[10px] xl:mt-[14px]">
+      <!-- <div class="md:mt-[10px] xl:mt-[14px]">
         <p class="leading-[150%] tracking-[1.149px] text-[12px] xl:text-[16px] text-white mb-[6px] md:mb-[26.8px] 2xl:mb-[40px]">{{ $t('FeaturedPostBlock.name') }}</p>
         <h1 class="w-[290px] lg:w-[416px] xl:w-[480px] 2xl:w-[580px] text-white text-[36px] leading-[40.25px] lg:text-[46px] lg:leading-[134.375%] 2xl:text-[64px] mb-[19px] 2xl:mb-[28px]">{{ $t('FeaturedPostBlock.tittle') }}</h1>
         <p class="w-[300px] xl:w-[416px] font-raleway-400 text-white text-[12px] leading-[150%] mb-[26px] md:mb-[47px] 2xl:mb-[64px]">{{ $t('FeaturedPostBlock.text') }}</p>
         <button class="bg-white text-dark-gray text-[10px] leading-[150%] xl:text-[14px] px-[35px] 2xl:px-[48px] py-[12px] 2xl:py-[16px] rounded-[6px] 2xl:rounded-[8px]">{{ $t('FeaturedPostBlock.button') }}</button>
+      </div> -->
+
+      <div v-if="$i18n.locale === 'en'" class="md:mt-[10px] xl:mt-[14px]">
+        <p class="leading-[150%] tracking-[1.149px] text-[12px] xl:text-[16px] text-white mb-[6px] md:mb-[26.8px] 2xl:mb-[40px]">{{ $t('FeaturedPostBlock.name') }}</p>
+        <h1 class="w-[290px] lg:w-[416px] xl:w-[480px] 2xl:w-[580px] text-white text-[36px] leading-[40.25px] lg:text-[46px] lg:leading-[134.375%] 2xl:text-[64px] mb-[19px] 2xl:mb-[28px]">{{ popularPost.titleEn }}</h1>
+        <p class="w-[300px] xl:w-[416px] font-raleway-400 text-white text-[12px] leading-[150%] mb-[26px] md:mb-[47px] 2xl:mb-[64px]">{{ popularPost.smallDescriptionEn }}</p>
+        <router-link v-if="popularPost && popularPost.id" :to="{ name: 'Post', params: {id: popularPost.id} }">
+          <button class="bg-white text-dark-gray text-[10px] leading-[150%] xl:text-[14px] px-[35px] 2xl:px-[48px] py-[12px] 2xl:py-[16px] rounded-[6px] 2xl:rounded-[8px]">{{ $t('FeaturedPostBlock.button') }}</button>
+        </router-link>
       </div>
 
-      <div class="background z-10 w-[327px] h-[330px] lg:w-[436px] lg:h-[413px] xl:w-[536px] xl:h-[513px] 2xl:w-[608px] 2xl:h-[576px]
-      rounded-[11.48px] 2xl:rounded-[16px]"></div>
+      <div v-if="$i18n.locale === 'ua'" class="md:mt-[10px] xl:mt-[14px]">
+        <p class="leading-[150%] tracking-[1.149px] text-[12px] xl:text-[16px] text-white mb-[6px] md:mb-[26.8px] 2xl:mb-[40px]">{{ $t('FeaturedPostBlock.name') }}</p>
+        <h1 class="w-[290px] lg:w-[416px] xl:w-[480px] 2xl:w-[580px] text-white text-[36px] leading-[40.25px] lg:text-[46px] lg:leading-[134.375%] 2xl:text-[64px] mb-[19px] 2xl:mb-[28px]">{{ popularPost.titleUa }}</h1>
+        <p class="w-[300px] xl:w-[416px] font-raleway-400 text-white text-[12px] leading-[150%] mb-[26px] md:mb-[47px] 2xl:mb-[64px]">{{ popularPost.smallDescriptionUa }}</p>
+        <router-link v-if="popularPost && popularPost.id" :to="{ name: 'Post', params: {id: popularPost.id} }">
+          <button class="bg-white text-dark-gray text-[10px] leading-[150%] xl:text-[14px] px-[35px] 2xl:px-[48px] py-[12px] 2xl:py-[16px] rounded-[6px] 2xl:rounded-[8px]">{{ $t('FeaturedPostBlock.button') }}</button>
+        </router-link>
+      </div>
+
+      <!-- <div class="background z-10 w-[327px] h-[330px] lg:w-[436px] lg:h-[413px] xl:w-[536px] xl:h-[513px] 2xl:w-[608px] 2xl:h-[576px]
+      rounded-[11.48px] 2xl:rounded-[16px]"></div> -->
+
+      <div class="z-10">
+        <img :src="popularPost.img" alt="" class="object-cover w-[327px] h-[330px] lg:w-[436px] lg:h-[413px] xl:w-[536px] xl:h-[513px] 2xl:w-[608px] 2xl:h-[576px]
+      rounded-[11.48px] 2xl:rounded-[16px]">
+      </div>
 
       <div class="hidden 2xl:block absolute top-[-206px] left-[-84px] w-[685px] h-[378px] rounded-bl-[50%_50%] rounded-br-[50%_50%] rounded-tl-[50%_50%] rounded-tr-[50%_50%] overflow-hidden">
              <svg class="mt-[16px] ml-[-87px] w-[1340px] h-[347px]" width="601" height="251" viewBox="0 0 601 251" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,7 +164,8 @@
 @media screen and (min-width: 1024px) {
   .background {
     /* background: url('../assets/img/FeaturedPost.jpg') -147.249px -43.421px / 168.421% 119.469% no-repeat, #CCE9FF; */
-    background: url('../assets/img/FeaturedPost.jpg') 50% -43.421px / 168.421% 119.469% no-repeat, #CCE9FF;
+    /* background: url('../assets/img/FeaturedPost.jpg') 50% -43.421px / 168.421% 119.469% no-repeat, #CCE9FF; */
+    background-position: 50% -43.421px / 168.421% 119.469%;
   }
 }
 

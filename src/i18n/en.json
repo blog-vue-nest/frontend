@@ -2,13 +2,28 @@
   "HeaderBlock": {
     "blog": "Blog",
     "about": "About",
-    "contact": "Contact us"
+    "contact": "Contact us",
+    "language": {
+      "title": "Language",
+      "english": "English",
+      "ukrainian": "Ukrainian"
+    }
   },
   "FeaturedPostBlock": {
     "name": "Featured post",
     "tittle": "How AI will Change the Future",
     "text": "The future of AI will see home robots having enhanced intelligence, increased capabilities, and becoming more personal and possibly cute. For example, home robots will overcome navigation, direction",
     "button": "Read more"
+  },
+  "MainPage": {
+    "RecentPosts": {
+      "title": "Our recent posts",
+      "button": "View all"
+    },
+    "PopularPosts": {
+      "title": "Popular posts",
+      "button": "View all"
+    }
   },
   "SubscribeBlock": {
     "title": "Get our stories delivered From us to your inbox weekly.",
