@@ -4,7 +4,6 @@ import axios from 'axios';
 import {formatDate, formatDateUa} from '@/utils/FormatDate'
 
 const posts = ref([]);
-const categories = ref([]);
 
 const getPosts = async () => {
   try {
@@ -12,27 +11,27 @@ const getPosts = async () => {
     posts.value = response.data.items;
 
     // Загружаем категории для каждого поста
-    await Promise.all(posts.value.map(async (post) => {
+   /* await Promise.all(posts.value.map(async (post) => {
       if (!categories.value[post.categoryId]) {
         const category = await getCategory(post.categoryId);
         categories.value[post.categoryId] = category;
       }
-    }));
+    }));*/
   } catch (error) {
     console.error('Error fetching posts:', error);
   }
 };
 
 
-const getCategory = async (id) => {
-  try {
-    const response = await axios.get(`http://localhost:3000/categories/get-category/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching category with id ${id}:`, error);
-    return null; // Возвращаем null, если произошла ошибка
-  }
-};
+// const getCategory = async (id) => {
+//   try {
+//     const response = await axios.get(`http://localhost:3000/categories/get-category/${id}`);
+//     return response.data;
+//   } catch (error) {
+//     console.error(`Error fetching category with id ${id}:`, error);
+//     return null; // Возвращаем null, если произошла ошибка
+//   }
+// };
 
 onMounted(() => {
   getPosts();
@@ -65,7 +64,8 @@ onMounted(() => {
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <!-- <span v-for="category in categories" :key="category.id" v-if="category.id === post.categoryId" class="font-roboto-700 text-dark">{{ category.titleEn }}</span> -->
-               <span v-if="categories[post.categoryId]" class="font-roboto-700 text-dark">{{ categories[post.categoryId].titleEn || 'Unknown Category' }}</span>
+               <!-- <span v-if="categories[post.categoryId]" class="font-roboto-700 text-dark">{{ categories[post.categoryId].titleEn || 'Unknown Category' }}</span> -->
+                <span class="font-roboto-700 text-dark">{{ post.category.titleEn }}</span>
               <span class="font-roboto-500 text-light-gray">{{ formatDate(post.createdAt) }}</span>
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
@@ -80,7 +80,8 @@ onMounted(() => {
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <!-- <span class="font-roboto-700 text-dark">Travel</span> -->
-               <span v-if="categories[post.categoryId]" class="font-roboto-700 text-dark">{{ categories[post.categoryId].titleUa || 'Unknown Category' }}</span>
+               <!-- <span v-if="categories[post.categoryId]" class="font-roboto-700 text-dark">{{ categories[post.categoryId].titleUa || 'Unknown Category' }}</span> -->
+                <span class="font-roboto-700 text-dark">{{ post.category.titleUa }}</span>
               <span class="font-roboto-500 text-light-gray capitalize">{{ formatDateUa(post.createdAt) }}</span>
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums

@@ -7,7 +7,7 @@ import Contact from '../pages/Contact.vue'
 import Post from "@/pages/Post.vue";
 import PageNotFound from "@/pages/PageNotFound.vue";
 
-import AdminPanel from "@/admin/pages/AdminPanel.vue";
+import { routes as admin } from "@/admin/router/index";
 
 const routes = [
     {
@@ -36,11 +36,9 @@ const routes = [
         name: 'Contact',
         component: Contact
     },
-    {
-        path: '/admin',
-        name: 'Admin',
-        component: AdminPanel
-    },
+
+    ...admin,
+    
     {
         path: '/:pathMatch(.*)*',
         component: PageNotFound

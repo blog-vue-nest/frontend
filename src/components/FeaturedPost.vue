@@ -11,20 +11,10 @@ const getPopularPost = async () => {
   try {
     const response = await axios.get('http://localhost:3000/posts/get-recent');    
     popularPost.value = response.data[0];    
-
-    // Загружаем категории для каждого поста
-    // await Promise.all(recentPosts.value.map(async (post) => {
-      
-    //   if (!categories.value[post.categoryId]) {
-    //     const category = await getCategory(post.categoryId);
-    //     categories.value[post.categoryId] = category;
-    //   }
-    // }));
   } catch (error) {
     console.error('Error fetching posts:', error);
   }
 };
-
 
 onMounted(() => {
   getPopularPost()

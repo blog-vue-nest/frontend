@@ -20,7 +20,7 @@ const props = defineProps({
 
 
 const post = ref([]);
-const category = ref([]);
+// const category = ref([]);
 
 
 const getPost = async () => {
@@ -28,27 +28,27 @@ const getPost = async () => {
     // Загружаем пост по id
     const response = await axios.get(`http://localhost:3000/posts/get-post/${props.id}`);
     post.value = response.data;
-    const categoryId = response.data.categoryId;
+    // const categoryId = response.data.categoryId;
 
-    if (post.value && categoryId) {
-      await getCategory(categoryId);
-    }
+    // if (post.value && categoryId) {
+    //   await getCategory(categoryId);
+    // }
   } catch (error) {
     console.error('Error fetching post:', error);
   }
 };
 
-const getCategory = async (categoryId) => {
-   try {
-    // Загружаем категорию по id
-    const response = await axios.get(`http://localhost:3000/categories/get-category/${categoryId}`);
+// const getCategory = async (categoryId) => {
+//    try {
+//     // Загружаем категорию по id
+//     const response = await axios.get(`http://localhost:3000/categories/get-category/${categoryId}`);
     
-    category.value = response.data;
-  } catch (error) {
-    console.error(`Error fetching category with id ${categoryId}:`, error);
-    category.value = null; // Возвращаем null, если произошла ошибка
-  }
-};
+//     category.value = response.data;
+//   } catch (error) {
+//     console.error(`Error fetching category with id ${categoryId}:`, error);
+//     category.value = null; // Возвращаем null, если произошла ошибка
+//   }
+// };
 
 onMounted(() => {
   getPost();
@@ -71,15 +71,15 @@ onMounted(() => {
               <img class="w-[100%] h-[258px] 2sm:h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]" :src="post.img" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
-              <span class="font-roboto-700 text-dark">{{ category.titleEn }}</span>
+              <span v-if="post && post.categoryId" class="font-roboto-700 text-dark">{{ post.category.titleEn }}</span>
                <!-- <span v-if="categories[post.categoryId]" class="font-roboto-700 text-dark">{{ categories[post.categoryId].titleEn || 'Unknown Category' }}</span> -->
               <!-- <span class="font-roboto-500 text-light-gray">{{ formatDate(post.createdAt) }}</span> -->
                <span class="font-roboto-500 text-light-gray">{{ formatDate(post.createdAt) }}</span>
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
             2xl:mt-[16px] 2xl:text-[24px] 2xl:leading-[32px]">{{ post.titleEn }}</h3>
-            <p class="mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]">{{ post.smallDescriptionEn }} {{ post.img }}</p>
-            <button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Read more...</button>
+            <p class="mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]">{{ post.smallDescriptionEn }}</p>
+            <!-- <button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Read more...</button> -->
           </article>
 
         <article v-if="$i18n.locale === 'ua'" class="w-auto">
@@ -87,14 +87,14 @@ onMounted(() => {
               <img class="w-[100%] h-[258px] 2sm:h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]" :src="post.img" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
-              <span class="font-roboto-700 text-dark">{{ category.titleUa }}</span>
+              <span v-if="post && post.categoryId" class="font-roboto-700 text-dark">{{ post.category.titleUa }}</span>
                <!-- <span v-if="categories[post.categoryId]" class="font-roboto-700 text-dark">{{ categories[post.categoryId].titleUa || 'Unknown Category' }}</span> -->
               <span class="font-roboto-500 text-light-gray capitalize">{{ formatDateUa(post.createdAt) }}</span> 
               </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
             2xl:mt-[16px] 2xl:text-[24px] 2xl:leading-[32px]">{{ post.titleUa }}</h3>
             <p class="mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]">{{ post.smallDescriptionUa }}</p>
-            <button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Читати більше...</button>
+            <!-- <button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Читати більше...</button> -->
           </article>
         </div>
       </section>

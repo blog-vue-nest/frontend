@@ -15,15 +15,6 @@ const getPopularPosts = async () => {
   try {
     const response = await axios.get('http://localhost:3000/posts/get-popular');    
     popularPosts.value = response.data;    
-
-    // Загружаем категории для каждого поста
-    await Promise.all(popularPosts.value.map(async (post) => {
-      
-      if (!categories.value[post.categoryId]) {
-        const category = await getCategory(post.categoryId);
-        categories.value[post.categoryId] = category;
-      }
-    }));
   } catch (error) {
     console.error('Error fetching posts:', error);
   }
@@ -35,28 +26,8 @@ const getRecentPosts = async () => {
     recentPosts.value = response.data;    
 
     recentPost.value = response.data[0];
-
-    // Загружаем категории для каждого поста
-    await Promise.all(recentPosts.value.map(async (post) => {
-      
-      if (!categories.value[post.categoryId]) {
-        const category = await getCategory(post.categoryId);
-        categories.value[post.categoryId] = category;
-      }
-    }));
   } catch (error) {
     console.error('Error fetching posts:', error);
-  }
-};
-
-
-const getCategory = async (id) => {
-  try {
-    const response = await axios.get(`http://localhost:3000/categories/get-category/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching category with id ${id}:`, error);
-    return null; // Возвращаем null, если произошла ошибка
   }
 };
 
@@ -79,7 +50,8 @@ onMounted(() => {
         <div class="mt-[26.7px] bg-white md:absolute md:bottom-[-80px] md:right-0 2xl:bottom-[-140px] md:w-[70%] md:rounded-[11.488px] md:px-[23px] lg:pr-[75px] md:pt-[23px] md:mb-[30px]
         2xl:pt-[32px] 2xl:pl-[32px] 2xl:pb-[42px] 2xl:pr-[104px] 2xl:rounded-[16px]">
           <div class="flex gap-[5.74px] text-[8.6px] 2xl:text-[12px] leading-[150%]">
-            <span v-if="categories[recentPost.categoryId]" class="uppercase font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleEn || 'Unknown Category' }}</span>
+            <!-- <span v-if="categories[recentPost.categoryId]" class="uppercase font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleEn || 'Unknown Category' }}</span> -->
+            <span v-if="recentPost && recentPost.id" class="uppercase font-roboto-700 text-dark">{{ recentPost.category.titleEn }}</span>
             <span class="font-roboto-500 text-light-gray">{{ formatDate(recentPost.createdAt) }}</span>
           </div>
           <h3 class="mt-[18px] font-raleway-700 text-dark text-[23px] leading-[24.3px] tracking-[-0.71px]
@@ -100,7 +72,8 @@ onMounted(() => {
         <div class="mt-[26.7px] bg-white md:absolute md:bottom-[-80px] md:right-0 2xl:bottom-[-140px] md:w-[70%] md:rounded-[11.488px] md:px-[23px] lg:pr-[75px] md:pt-[23px] md:mb-[30px]
         2xl:pt-[32px] 2xl:pl-[32px] 2xl:pb-[42px] 2xl:pr-[104px] 2xl:rounded-[16px]">
           <div class="flex gap-[5.74px] text-[8.6px] 2xl:text-[12px] leading-[150%]">
-            <span v-if="categories[recentPost.categoryId]" class="uppercase font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleUa || 'Невідома Категорія' }}</span>
+            <!-- <span v-if="categories[recentPost.categoryId]" class="uppercase font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleUa || 'Невідома Категорія' }}</span> -->
+             <span v-if="recentPost && recentPost.id" class="uppercase font-roboto-700 text-dark">{{ recentPost.category.titleUa }}</span>
             <span class="font-roboto-500 text-light-gray">{{ formatDateUa(recentPost.createdAt) }}</span>
           </div>
           <h3 class="mt-[18px] font-raleway-700 text-dark text-[23px] leading-[24.3px] tracking-[-0.71px]
@@ -147,14 +120,15 @@ onMounted(() => {
             </div>
             <div class="mt-[12px] w-[40%] 2xl:mt-[16px] 2xl:w-[45%]">
               <div class="flex gap-[5.74px] text-[8.6px] 2xl:text-[12px] leading-[150%]">
-                 <span v-if="categories[recentPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleEn || 'Unknown Category' }}</span>
+                 <!-- <span v-if="categories[recentPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleEn || 'Unknown Category' }}</span> -->
+                  <span v-if="recentPost && recentPost.categoryId" class="font-roboto-700 text-dark">{{ recentPost.category.titleEn }}</span>
                 <span class="font-roboto-500 text-light-gray">{{ formatDate(recentPost.createdAt) }}</span>
               </div>
               <h3 class="mt-[20px] font-raleway-700 text-dark text-[23px] leading-[24.3px] tracking-[-0.71px]
                 2xl:mt-[27px] 2xl:text-[32px] 2xl:leading-[45px] 2xl:tracking-[-1px]">{{ recentPost.titleEn }}</h3>
               <p class="mt-[10px] font-roboto-400 text-dark-gray text-[12px] leading-[150%] 2xl:mt-[13px] 2xl:text-[16px]">{{ recentPost.smallDescriptionEn }}
               </p>
-              <router-link v-if="recentPost && recentPost.id" :to="{ name: 'Post', params: { id: recentPost.id } }"><button class="mt-[45px] border-[0.718px] border-violet rounded-[5.744px] px-[35px] py-[12px] capitalize font-roboto-700 text-[10px] leading-[150%] text-violet
+              <router-link v-if="recentPost && recentPost.categoryId" :to="{ name: 'Post', params: { id: recentPost.id } }"><button class="mt-[45px] border-[0.718px] border-violet rounded-[5.744px] px-[35px] py-[12px] capitalize font-roboto-700 text-[10px] leading-[150%] text-violet
                 2xl:mt-[61px] 2xl:text-[14px] 2xl:px-[48px] 2xl:py-[16px] 2xl:rounded-[8px]">Read more</button></router-link>
             </div>
           </article>
@@ -165,14 +139,15 @@ onMounted(() => {
             </div>
             <div class="mt-[12px] w-[40%] 2xl:mt-[16px] 2xl:w-[45%]">
               <div class="flex gap-[5.74px] text-[8.6px] 2xl:text-[12px] leading-[150%]">
-                 <span v-if="categories[recentPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleUa || 'Невідома Категорія' }}</span>
+                 <!-- <span v-if="categories[recentPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleUa || 'Невідома Категорія' }}</span> -->
+                <span v-if="recentPost && recentPost.categoryId" class="font-roboto-700 text-dark">{{ recentPost.category.titleUa }}</span>
                 <span class="font-roboto-500 text-light-gray">{{ formatDateUa(recentPost.createdAt) }}</span>
               </div>
               <h3 class="mt-[20px] font-raleway-700 text-dark text-[23px] leading-[24.3px] tracking-[-0.71px]
                 2xl:mt-[27px] 2xl:text-[32px] 2xl:leading-[45px] 2xl:tracking-[-1px]">{{ recentPost.titleUa }}</h3>
               <p class="mt-[10px] font-roboto-400 text-dark-gray text-[12px] leading-[150%] 2xl:mt-[13px] 2xl:text-[16px]">{{ recentPost.smallDescriptionUa }}
               </p>
-              <router-link v-if="recentPost && recentPost.id" :to="{ name: 'Post', params: { id: recentPost.id } }"><button class="mt-[45px] border-[0.718px] border-violet rounded-[5.744px] px-[35px] py-[12px] capitalize font-roboto-700 text-[10px] leading-[150%] text-violet
+              <router-link v-if="recentPost && recentPost.categoryId" :to="{ name: 'Post', params: { id: recentPost.id } }"><button class="mt-[45px] border-[0.718px] border-violet rounded-[5.744px] px-[35px] py-[12px] capitalize font-roboto-700 text-[10px] leading-[150%] text-violet
                 2xl:mt-[61px] 2xl:text-[14px] 2xl:px-[48px] 2xl:py-[16px] 2xl:rounded-[8px]">Читати більше</button></router-link>
             </div>
           </article>
@@ -188,7 +163,8 @@ onMounted(() => {
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <!-- <span class="font-roboto-700 text-dark">Travel</span> -->
-              <span v-if="categories[recentPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleEn || 'Unknown Category' }}</span>
+              <!-- <span v-if="categories[recentPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleEn || 'Unknown Category' }}</span> -->
+              <span v-if="recentPost && recentPost.categoryId" class="font-roboto-700 text-dark">{{ recentPost.category.titleEn }}</span>
               <span class="font-roboto-500 text-light-gray">{{ formatDate(recentPost.createdAt) }}</span>
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
@@ -203,7 +179,8 @@ onMounted(() => {
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <!-- <span class="font-roboto-700 text-dark">Travel</span> -->
-              <span v-if="categories[recentPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleUa || 'Unknown Category' }}</span>
+              <!-- <span v-if="categories[recentPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[recentPost.categoryId].titleUa || 'Unknown Category' }}</span> -->
+              <span v-if="recentPost && recentPost.categoryId" class="font-roboto-700 text-dark">{{ recentPost.category.titleUa }}</span>
               <span class="font-roboto-500 text-light-gray">{{ formatDateUa(recentPost.createdAt) }}</span>
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
@@ -319,7 +296,8 @@ onMounted(() => {
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <!-- <span class="font-roboto-700 text-dark">Travel</span> -->
-              <span v-if="categories[popularPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[popularPost.categoryId].titleEn || 'Unknown Category' }}</span>
+              <!-- <span v-if="categories[popularPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[popularPost.categoryId].titleEn || 'Unknown Category' }}</span> -->
+              <span v-if="popularPost && popularPost.categoryId" class="font-roboto-700 text-dark">{{ popularPost.category.titleEn }}</span>
               <span class="font-roboto-500 text-light-gray">{{ formatDate(popularPost.createdAt) }}</span>
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
@@ -334,7 +312,8 @@ onMounted(() => {
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <!-- <span class="font-roboto-700 text-dark">Travel</span> -->
-              <span v-if="categories[popularPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[popularPost.categoryId].titleUa || 'Unknown Category' }}</span>
+              <!-- <span v-if="categories[popularPost.categoryId]" class="font-roboto-700 text-dark">{{ categories[popularPost.categoryId].titleUa || 'Unknown Category' }}</span> -->
+              <span v-if="popularPost && popularPost.categoryId" class="font-roboto-700 text-dark">{{ popularPost.category.titleUa }}</span>
               <span class="font-roboto-500 text-light-gray">{{ formatDateUa(popularPost.createdAt) }}</span>
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums

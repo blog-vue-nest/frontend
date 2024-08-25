@@ -1,5 +1,7 @@
 <script setup>
 // import { defineComponent } from 'vue';
+
+
 import { Icon } from '@iconify/vue';
 import { RouterLink } from 'vue-router';
 
@@ -81,7 +83,7 @@ const closeList = () => {
             2xl:text-[16px] 2xl:px-[48px] 2xl-[py-16px] 2xl:rounded-[8px]">{{ $t('HeaderBlock.contact') }}</button>
           </router-link>
 
-          <router-link :to="{name: 'Admin'}">Admin</router-link>
+          <router-link :to="{name: 'ViewCategories'}">Admin</router-link>
         </div>
         </menu>
       </div>
