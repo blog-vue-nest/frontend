@@ -39,9 +39,6 @@ const previewFilePath = computed(() => {
 });
 
 
-
-// const selected = ref(0);
-
 const categoryId = ref(0);
 const titleEn = ref('');
 const titleUa = ref('');
@@ -50,6 +47,7 @@ const descriptionEn = ref('');
 const descriptionUa = ref('');
 const smallDescriptionEn = ref('');
 const smallDescriptionUa = ref('');
+
 
 const createPost = async () => {  
   try {
@@ -65,6 +63,11 @@ const createPost = async () => {
       "smallDescriptionEn": smallDescriptionEn.value,
       "smallDescriptionUa": smallDescriptionUa.value
     });
+
+    // console.log(descriptionUa.value);
+    // console.log(typeof descriptionUa.value);
+    
+    
     
   } catch (error) {
     console.error(`Error adding post`, error);
@@ -118,15 +121,36 @@ const createPost = async () => {
     </div>
 
 
+
     <div class="mb-6">
-      <label for="descriptionEn" class="block mb-2 text-sm font-medium text-dark-gray">English full description</label>
-      <textarea v-model="descriptionEn" id="descriptionEn" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write full description..."></textarea>
+      <label for="descriptionEn">English description</label>
+      <div class="mt-3">
+        <quill-editor id="descriptionEn" toolbar="full" v-model:content="descriptionEn" contentType="html" theme="snow"></quill-editor>
+        <!-- {{ descriptionEn }} -->
+        <!-- <div v-html="descriptionEn"></div> -->
+      </div>
     </div>
 
     <div class="mb-6">
+      <label for="descriptionUa">Ukrainian description</label>
+      <div class="mt-3">
+        <!-- <QuillEditor toolbar="full" v-model="descriptionEn" /> -->
+        <quill-editor id="descriptionUa" toolbar="full" v-model:content="descriptionUa" contentType="html" theme="snow"></quill-editor>
+        <!-- {{ descriptionUa }} -->
+        <!-- <div v-html="descriptionUa"></div> -->
+      </div>
+    </div>
+
+
+    <!-- <div class="mb-6">
+      <label for="descriptionEn" class="block mb-2 text-sm font-medium text-dark-gray">English full description</label>
+      <textarea v-model="descriptionEn" id="descriptionEn" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write full description..."></textarea>
+    </div> -->
+
+    <!-- <div class="mb-6">
       <label for="descriptionUa" class="block mb-2 text-sm font-medium text-dark-gray">Ukrainian full description</label>
       <textarea v-model="descriptionUa" id="descriptionUa" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write full description..."></textarea>
-    </div>
+    </div> -->
 
 
 
