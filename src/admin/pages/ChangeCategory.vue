@@ -1,6 +1,16 @@
 <script setup>
 import Aside from '../components/Aside.vue';
 import ChangeCategory from '../components/ChangeCategory.vue';
+
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  }
+})
+
 </script>
 
 <template>
@@ -8,7 +18,7 @@ import ChangeCategory from '../components/ChangeCategory.vue';
 
 <Aside />
 
-<ChangeCategory />
+<ChangeCategory :categoryId="props.id" />
 
 
 </template>

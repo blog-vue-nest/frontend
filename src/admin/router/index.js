@@ -12,9 +12,10 @@ export const routes = [
     component: ViewCategories
   },
   {
-    path: '/admin/change-category',
+    path: '/admin/change-category/:id',
     name: 'ChangeCategory',
-    component: ChangeCategory
+    component: ChangeCategory,
+    props: true
   },
   {
     path: '/admin/add-category',

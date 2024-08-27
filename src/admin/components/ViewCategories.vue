@@ -41,6 +41,7 @@ onMounted(() => {
 <section>
   <h3 class="mb-3 font-raleway-700 text-center text-[24px]">All categories</h3>
 
+  <router-link :to="{ name: 'AddCategory'}">Add category</router-link>
 
   <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -71,8 +72,9 @@ onMounted(() => {
                 <td class="px-6 py-4">
                      {{ category.titleUa }}
                 </td>
-                <td class="px-6 py-4">
+                <td class="flex gap-3 px-6 py-4">
                     <span @click="deleteCategory(category.id)" class="hover:cursor-pointer">X</span>
+                    <router-link :to="{ name: 'ChangeCategory', params: {id:category.id}}">Edit</router-link>
                 </td>
             </tr>
         </tbody>

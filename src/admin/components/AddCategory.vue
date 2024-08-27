@@ -25,6 +25,8 @@ const addCategory = async () => {
   <section class="mt-3">
     <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Add category</h3>
 
+    <router-link :to="{ name: 'ViewCategories'}">View categories</router-link>
+
     
 
 <form @submit.prevent="handleSubmit, addCategory()" class="mx-auto">
