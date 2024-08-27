@@ -89,6 +89,10 @@ const createPost = async () => {
 <section>
   <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Add post</h3>
 
+  <div class="my-6">
+    <router-link :to="{ name: 'ViewPosts'}">View posts</router-link>
+  </div>
+
 
 <form @submit.prevent="handleSubmit, createPost()">
 

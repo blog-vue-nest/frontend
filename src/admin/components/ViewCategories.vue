@@ -39,7 +39,7 @@ onMounted(() => {
   <div class="p-4 sm:ml-64">
     
 <section>
-  <h3 class="mb-3 font-raleway-700 text-center text-[24px]">All categories</h3>
+  <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Categories</h3>
 
   <router-link :to="{ name: 'AddCategory'}">Add category</router-link>
 

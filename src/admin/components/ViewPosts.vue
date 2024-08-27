@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import {formatDate, formatDateUa} from '@/utils/FormatDate'
+import { formatDate, formatDateUa } from '@/utils/FormatDate';
 // import AddPost from './AddPost.vue';
 
 const posts = ref([]);
@@ -31,10 +31,6 @@ const getPosts = async (page = 1) => {
   }
 };
 
-const getPostId = (postId) => {
-  console.log(postId);
-}
-
 onMounted(() => {
   getPosts();
 });
@@ -45,7 +41,11 @@ onMounted(() => {
 
   <div class="p-4 sm:ml-64">
     <section>
-      <h3 class="mb-8 font-raleway-700 text-center text-[24px]">View posts</h3>
+      <h3 class="mb-8 font-raleway-700 text-center text-[24px]">Posts</h3>
+
+      <div class="my-6">
+        <router-link :to="{ name: 'AddPost'}">Add post</router-link>
+      </div>
 
        <div class="mx-[19px] md:mx-0 grid grid-cols-1 justify-items-center 2sm:grid-cols-2 2sm:gap-3 md:grid-cols-3 lg:grid-cols-4 gap-y-[45px] md:gap-y-[37px] md:gap-x-[12px] 2xl:gap-y-[53px] 2xl:gap-x-[16px]">
 
@@ -62,7 +62,6 @@ onMounted(() => {
             2xl:mt-[16px] 2xl:text-[24px] 2xl:leading-[32px]">{{ post.titleEn }}</h3>
             <p class="mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]">{{ post.smallDescriptionEn }}</p>
               <router-link :to="{ name: 'Post', params: {id: post.id} }"><button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Read more...</button></router-link>
-              <!-- <button @click="getPostId(post.id)">Edit</button> -->
                <router-link v-if:="post && post.id" :to="{ name: 'ChangePost', params: { id: post.id } }">Edit</router-link>
           </article>
 
