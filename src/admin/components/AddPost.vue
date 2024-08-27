@@ -2,6 +2,14 @@
 import { ref, computed, onMounted } from 'vue';
 import axios from 'axios';
 
+import QuillWrapper from './QuillWrapper.vue';
+
+// import { QuillEditor } from '@vueup/vue-quill';
+// import '@vueup/vue-quill/dist/vue-quill.snow.css';
+
+
+const editorKey = ref(0); // ref для QuillEditor
+
 const categories = ref([]);
 
 const getCategories = async (id) => {
@@ -19,7 +27,7 @@ onMounted(() => {
 })
 
 
-const photo = ref(null);
+// const photo = ref(null);
 
 const uploadFile = (e) => {
   const [file] = e.target.files;
@@ -27,7 +35,7 @@ const uploadFile = (e) => {
   if (file) {
     const reader = new FileReader();
     reader.onload = (e) => {
-      photo.value = e.target.result; // base64 строка      
+      formData.value.img = e.target.result; // base64 строка      
       // console.log(e.target.result);  // Вывод base64 строки в консоль
     };
     reader.readAsDataURL(file); // Чтение файла в base64
@@ -35,40 +43,39 @@ const uploadFile = (e) => {
 };
 
 const previewFilePath = computed(() => {
-  return photo.value ? photo.value : '#';
+  return formData.value.img ? formData.value.img : '#';
 });
 
 
-const categoryId = ref(0);
-const titleEn = ref('');
-const titleUa = ref('');
-// const img = ref('');
-const descriptionEn = ref('');
-const descriptionUa = ref('');
-const smallDescriptionEn = ref('');
-const smallDescriptionUa = ref('');
-
+const formData = ref({
+  categoryId: 0,
+  titleEn: '',
+  titleUa: '',
+  img: null,
+  descriptionEn: '',
+  descriptionUa: '',
+  smallDescriptionEn: '',
+  smallDescriptionUa: ''
+})
 
 const createPost = async () => {  
   try {
     // console.log('Preview File Path:', previewFilePath.value);
+    
+    axios.post(`http://localhost:3000/posts/create-post`, formData.value);
 
-    axios.post(`http://localhost:3000/posts/create-post`, {
-      "categoryId": +categoryId.value,
-      "titleEn": titleEn.value,
-      "titleUa": titleUa.value,
-      "img": previewFilePath.value,
-      "descriptionEn": descriptionEn.value,
-      "descriptionUa": descriptionUa.value,
-      "smallDescriptionEn": smallDescriptionEn.value,
-      "smallDescriptionUa": smallDescriptionUa.value
-    });
+    formData.value = {
+      categoryId: 0,
+      titleEn: '',
+      titleUa: '',
+      descriptionEn: '',
+      descriptionUa: '',
+      smallDescriptionEn: '',
+      smallDescriptionUa: ''
+    }
 
-    // console.log(descriptionUa.value);
-    // console.log(typeof descriptionUa.value);
-    
-    
-    
+    editorKey.value += 1;
+
   } catch (error) {
     console.error(`Error adding post`, error);
   }
@@ -85,70 +92,74 @@ const createPost = async () => {
 
 <form @submit.prevent="handleSubmit, createPost()">
 
-<label for="countries" class="block mb-2 text-sm font-medium text-dark-gray">Chose a category</label>
-  <select v-model="categoryId" id="categories" required class="bg-gray-50 border border-gray-300 text-dark-gray text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+<label for="categories" class="block mb-2 text-sm font-medium text-dark-gray">Chose a category</label>
+  <select v-model="formData.categoryId" id="categories" required class="bg-gray-50 border border-gray-300 text-dark-gray text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
     <option v-for="category in categories" :key="category.id" :value="category.id" selected>{{ category.titleEn }} | {{ category.titleUa }}</option>
   </select>
   <p class="mt-1">
-    {{ categoryId }}
+    {{ formData.categoryId }}
   </p>
 
     <div class="grid gap-6 mt-3 mb-6 md:grid-cols-2">
         <div>
             <label for="titleEn" class="block mb-2 text-sm font-medium text-gray-900">English title</label>
-            <input v-model="titleEn" type="text" id="titleEn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Title" required />
+            <input v-model="formData.titleEn" type="text" id="titleEn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Title" required />
         </div>
         <div>
             <label for="titleUa" class="block mb-2 text-sm font-medium text-gray-900">Ukrainian title</label>
-            <input v-model="titleUa" type="text" id="titleUa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Title" required />
+            <input v-model="formData.titleUa" type="text" id="titleUa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Title" required />
         </div>
     </div>
 
     <div class="mb-6">   
       <label class="block mb-2 text-sm font-medium text-dark-gray" for="file_input">Upload file</label>
-      <input :v-model="photo" @change="uploadFile" class="block w-full text-sm text-dark-gray border border-dark-gray rounded-lg cursor-pointer bg-light-gray focus:outline-none" id="file_input" type="file" required />
+      <input :v-model="formData.img" @change="uploadFile" class="block w-full text-sm text-dark-gray border border-dark-gray rounded-lg cursor-pointer bg-light-gray focus:outline-none" id="file_input" type="file" required />
       <img :src="previewFilePath" alt="" class="w-100 mt-2">
     </div> 
 
     <div class="mb-6">
       <label for="smallDescriptionEn" class="block mb-2 text-sm font-medium text-dark-gray">English small description</label>
-      <textarea v-model="smallDescriptionEn" id="smallDescriptionEn" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write small description..."></textarea>
+      <textarea v-model="formData.smallDescriptionEn" id="smallDescriptionEn" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write small description..."></textarea>
     </div>
 
     <div class="mb-6">
       <label for="smallDescriptionUa" class="block mb-2 text-sm font-medium text-dark-gray">Ukrainian small description</label>
-      <textarea v-model="smallDescriptionUa" id="smallDescriptionUa" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write small description..."></textarea>
+      <textarea v-model="formData.smallDescriptionUa" id="smallDescriptionUa" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write small description..."></textarea>
     </div>
-
 
 
     <div class="mb-6">
       <label for="descriptionEn">English description</label>
       <div class="mt-3">
-        <quill-editor id="descriptionEn" toolbar="full" v-model:content="descriptionEn" contentType="html" theme="snow"></quill-editor>
-        <!-- {{ descriptionEn }} -->
-        <!-- <div v-html="descriptionEn"></div> -->
+        <QuillWrapper 
+          id="descriptionEn" 
+          v-model="formData.descriptionEn" 
+          :key="editorKey"
+        />
+        <div v-html="formData.descriptionEn"></div>
       </div>
     </div>
 
     <div class="mb-6">
       <label for="descriptionUa">Ukrainian description</label>
       <div class="mt-3">
-        <!-- <QuillEditor toolbar="full" v-model="descriptionEn" /> -->
-        <quill-editor id="descriptionUa" toolbar="full" v-model:content="descriptionUa" contentType="html" theme="snow"></quill-editor>
-        <!-- {{ descriptionUa }} -->
-        <!-- <div v-html="descriptionUa"></div> -->
+        <QuillWrapper 
+          id="descriptionUa" 
+          v-model="formData.descriptionUa" 
+          :key="editorKey"
+        />
+        <div v-html="formData.descriptionUa"></div>
       </div>
     </div>
 
 
     <!-- <div class="mb-6">
-      <label for="descriptionEn" class="block mb-2 text-sm font-medium text-dark-gray">English full description</label>
+      <label for="formData.descriptionEn" class="block mb-2 text-sm font-medium text-dark-gray">English full description</label>
       <textarea v-model="descriptionEn" id="descriptionEn" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write full description..."></textarea>
     </div> -->
 
     <!-- <div class="mb-6">
-      <label for="descriptionUa" class="block mb-2 text-sm font-medium text-dark-gray">Ukrainian full description</label>
+      <label for="formData.descriptionUa" class="block mb-2 text-sm font-medium text-dark-gray">Ukrainian full description</label>
       <textarea v-model="descriptionUa" id="descriptionUa" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write full description..."></textarea>
     </div> -->
 

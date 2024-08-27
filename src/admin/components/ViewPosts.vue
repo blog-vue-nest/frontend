@@ -1,18 +1,39 @@
 <script setup>
-import { ref, onMounted} from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import {formatDate, formatDateUa} from '@/utils/FormatDate'
+// import AddPost from './AddPost.vue';
 
 const posts = ref([]);
+const totalPages = ref(null);
+const currentPage = ref(null);
 
-const getPosts = async () => {
+const listOfPages = ref([]);
+
+const generateArray = () => {
+    for (let i = 1; i <= totalPages.value; i++) {
+      listOfPages.value.push(i);
+  } 
+};
+
+
+const getPosts = async (page = 1) => {
   try {
-    const response = await axios.get('http://localhost:3000/posts/get-all?page=1');    
+    const response = await axios.get(`http://localhost:3000/posts/get-all?page=${page}`);    
     posts.value = response.data.items;
+    totalPages.value = response.data.meta.totalPages;
+    currentPage.value = response.data.meta.currentPage;
+
+    listOfPages.value = [];
+    generateArray();
   } catch (error) {
-    console.error('Error fetching posts:', error);
+    console.error('Error fetching posts:', error);    
   }
 };
+
+const getPostId = (postId) => {
+  console.log(postId);
+}
 
 onMounted(() => {
   getPosts();
@@ -21,6 +42,7 @@ onMounted(() => {
 </script>
 
 <template>
+
   <div class="p-4 sm:ml-64">
     <section>
       <h3 class="mb-8 font-raleway-700 text-center text-[24px]">View posts</h3>
@@ -40,6 +62,8 @@ onMounted(() => {
             2xl:mt-[16px] 2xl:text-[24px] 2xl:leading-[32px]">{{ post.titleEn }}</h3>
             <p class="mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]">{{ post.smallDescriptionEn }}</p>
               <router-link :to="{ name: 'Post', params: {id: post.id} }"><button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Read more...</button></router-link>
+              <!-- <button @click="getPostId(post.id)">Edit</button> -->
+               <router-link v-if:="post && post.id" :to="{ name: 'ChangePost', params: { id: post.id } }">Edit</router-link>
           </article>
 
           <article v-if="$i18n.locale === 'ua'" v-for="post in posts" :key="post.id" class="w-auto">
@@ -57,6 +81,39 @@ onMounted(() => {
             <p class="mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]">{{ post.smallDescriptionUa }}</p>
             <router-link :to="{ name: 'Post', params: {id: post.id} }"><button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Читати більше...</button></router-link>
           </article>
+        </div>
+
+
+
+        <div class="flex justify-center mt-6">
+          
+
+<nav aria-label="Page navigation example">
+  <ul class="inline-flex -space-x-px text-sm">
+    <li>
+      <a v-if="currentPage > 1" @click="getPosts(--currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+    </li>
+
+
+
+    <li v-if="listOfPages !== null" v-for="page in listOfPages" :key="page">
+      <a v-if="currentPage !== page" @click="getPosts(page)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        {{ page }}
+      </a>
+      <a v-else class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        {{ page }}
+      </a>
+    </li>
+
+    
+    <li>
+      <a v-if="currentPage < totalPages" @click="getPosts(++currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+    </li>
+  </ul>
+</nav>
+
         </div>
     </section>
     

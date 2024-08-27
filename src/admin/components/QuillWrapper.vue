@@ -1,34 +1,33 @@
 <template>
-  <quill-editor
-    v-model="localContent"
-    :options="editorOptions"
-    @blur="emitContent"
-  ></quill-editor>
+  <QuillEditor 
+  v-model:content="content" 
+  content-type="html"
+  :toolbar="toolbarOptions" 
+  theme="snow" />
 </template>
 
 <script setup>
 import { ref, watch, defineProps, defineEmits } from 'vue';
+import { QuillEditor } from '@vueup/vue-quill';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+
+const toolbarOptions = [
+  { header: [1, 2, 3, false] }, // Заголовки 1-3 уровней
+  'bold', 'italic', 'underline', 'strike', // Текстовое форматирование
+  'blockquote',
+  { list: 'ordered' }, { list: 'bullet' }, // Упорядоченные и неупорядоченные списки
+  'image', // Вставка изображений
+];
 
 const props = defineProps({
-  modelValue: {
-    type: String,
-    required: true
-  }
+  modelValue: String
 });
 
 const emit = defineEmits(['update:modelValue']);
-const localContent = ref(props.modelValue);
 
-const editorOptions = {
-  theme: 'snow', // Используем правильную тему
-};
+const content = ref(props.modelValue);
 
-const emitContent = () => {
-  emit('update:modelValue', localContent.value);
-};
-
-// Следим за изменениями modelValue и обновляем localContent
-watch(() => props.modelValue, (newVal) => {
-  localContent.value = newVal;
+watch(content, (newValue) => {
+  emit('update:modelValue', newValue);
 });
 </script>

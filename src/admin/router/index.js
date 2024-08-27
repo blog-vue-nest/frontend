@@ -27,9 +27,10 @@ export const routes = [
     component: ViewPosts
   },
   {
-    path: '/admin/change-post',
+    path: '/admin/change-post/:id',
     name: 'ChangePost',
-    component: ChangePost
+    component: ChangePost,
+    props: true
   },
   {
     path: '/admin/add-post',

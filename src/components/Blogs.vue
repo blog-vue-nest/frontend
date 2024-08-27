@@ -5,33 +5,31 @@ import {formatDate, formatDateUa} from '@/utils/FormatDate'
 
 const posts = ref([]);
 
-const getPosts = async () => {
+const totalPages = ref(null);
+const currentPage = ref(null);
+
+const listOfPages = ref([]);
+
+const generateArray = () => {
+    for (let i = 1; i <= totalPages.value; i++) {
+      listOfPages.value.push(i);
+  } 
+};
+
+const getPosts = async (page = 1) => {
   try {
-    const response = await axios.get('http://localhost:3000/posts/get-all?page=1');    
+    const response = await axios.get(`http://localhost:3000/posts/get-all?page=${page}`);    
     posts.value = response.data.items;
 
-    // Загружаем категории для каждого поста
-   /* await Promise.all(posts.value.map(async (post) => {
-      if (!categories.value[post.categoryId]) {
-        const category = await getCategory(post.categoryId);
-        categories.value[post.categoryId] = category;
-      }
-    }));*/
+    totalPages.value = response.data.meta.totalPages;
+    currentPage.value = response.data.meta.currentPage;
+
+    listOfPages.value = [];
+    generateArray();
   } catch (error) {
     console.error('Error fetching posts:', error);
   }
 };
-
-
-// const getCategory = async (id) => {
-//   try {
-//     const response = await axios.get(`http://localhost:3000/categories/get-category/${id}`);
-//     return response.data;
-//   } catch (error) {
-//     console.error(`Error fetching category with id ${id}:`, error);
-//     return null; // Возвращаем null, если произошла ошибка
-//   }
-// };
 
 onMounted(() => {
   getPosts();
@@ -90,6 +88,43 @@ onMounted(() => {
             <router-link :to="{ name: 'Post', params: {id: post.id} }"><button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Читати більше...</button></router-link>
           </article>
         </div>
+
+
+
+                <div class="flex justify-center mt-6">
+          
+
+<nav aria-label="Page navigation example">
+  <ul class="inline-flex -space-x-px text-sm">
+    <li>
+      <a v-if="currentPage > 1" @click="getPosts(--currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+    </li>
+
+
+
+    <li v-if="listOfPages !== null" v-for="page in listOfPages" :key="page">
+      <a v-if="currentPage !== page" @click="getPosts(page)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        {{ page }}
+      </a>
+      <a v-else class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        {{ page }}
+      </a>
+    </li>
+
+    
+    <li>
+      <a v-if="currentPage < totalPages" @click="getPosts(++currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+    </li>
+  </ul>
+</nav>
+
+        </div>
+
+
+
+
       </section>
   </div>
 </template>
