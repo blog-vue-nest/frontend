@@ -1,7 +1,7 @@
 <script setup>
 import {formatDate, formatDateUa} from '@/utils/FormatDate'
 
-import { ref, onMounted, defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
 const props = defineProps({
@@ -32,11 +32,11 @@ onMounted(() => {
 
       <section class="mt-[46px] md:mt-[80px] 2xl:mt-[114px]">
         <!-- <div class="mt-[37px] mb-[57px] mx-[19px] flex flex-col items-center gap-[45px]"> -->
-          <div class="mx-[19px] md:mx-0 grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-y-[45px] lg:gap-y-[37px] lg:gap-x-[12px] 2xl:gap-y-[53px] 2xl:gap-x-[16px]">
+          <div class="mx-[19px]">
 
           <article v-if="$i18n.locale === 'en'" class="w-auto">
             <div>
-              <img class="w-[100%] h-[258px] 2sm:h-[400px] lg:h-[23vw] object-cover rounded-[12px] 2xl:rounded-[16px]" :src="post.img" alt="Plane">
+              <img class="w-[100%] h-[258px] lg:h-[30vw] object-center object-cover rounded-[12px] 2xl:rounded-[16px]" :src="post.img" alt="Plane">
             </div>
             <div class="mt-[28px] flex gap-[6px] text-[9px] leading-[150%] 2xl:mt-[40px] 2xl:text-[12px]">
               <span v-if="post && post.categoryId" class="font-roboto-700 text-dark">{{ post.category.titleEn }}</span>
@@ -46,7 +46,7 @@ onMounted(() => {
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
             2xl:mt-[16px] 2xl:text-[24px] 2xl:leading-[32px]">{{ post.titleEn }}</h3>
-            <p v-html="post.descriptionEn" class="mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]"></p>
+              <div v-html="post.descriptionEn" class="current-post-description test mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]"></div>
             <!-- <button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Read more...</button> -->
           </article>
 
@@ -61,7 +61,7 @@ onMounted(() => {
               </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
             2xl:mt-[16px] 2xl:text-[24px] 2xl:leading-[32px]">{{ post.titleUa }}</h3>
-            <p v-html="post.descriptionUa" class="mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]"></p>
+            <p v-html="post.descriptionUa" class="current-post-description mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]"></p>
             <!-- <button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Читати більше...</button> -->
           </article>
         </div>
@@ -71,5 +71,27 @@ onMounted(() => {
 
 </template>
 
-<style scoped>
+<style>
+.current-post-description > h1 {
+  font-size: 54px;
+  line-height: 120%;
+}
+
+.current-post-description > h2 {
+  font-size: 44px;
+  line-height: 120%;
+}
+
+.current-post-description > h3 {
+  font-size: 34px;
+  line-height: 120%;
+}
+
+.current-post-description > p {
+  color: red;
+}
+
+.current-post-description img {
+  margin: 30px auto;
+}
 </style>

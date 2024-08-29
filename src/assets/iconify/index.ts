@@ -36,6 +36,16 @@ export default addCollection({
       width: 640,
       height: 480,
       body: "<g fill-rule=\"evenodd\" stroke-width=\"1\"><path fill=\"#ffd700\" d=\"M0 0h640v480H0z\" /><path fill=\"#0057b8\" d=\"M0 0h640v240H0z\" /></g>"
+    },
+    'delete-circle': {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"none\" stroke=\"black\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9.172 14.828L12.001 12m2.828-2.828L12.001 12m0 0L9.172 9.172M12.001 12l2.828 2.828M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10\" />"
+    },
+    'edit-icon': {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"none\" stroke=\"black\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M3 21h18M12.222 5.828L15.05 3L20 7.95l-2.828 2.828m-4.95-4.95l-5.607 5.607a1 1 0 0 0-.293.707v4.536h4.536a1 1 0 0 0 .707-.293l5.607-5.607m-4.95-4.95l4.95 4.95\" />"
     }
   }
 })

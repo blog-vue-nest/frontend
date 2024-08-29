@@ -16,8 +16,6 @@ const deleteCategory = async (id) => {
   } else {
     alert('Action is canceled');
   }
-
-  
 }
 
   const getCategories = async (id) => {
@@ -33,6 +31,7 @@ const deleteCategory = async (id) => {
 onMounted(() => {
   getCategories()
 })
+
 </script>
 
 <template>
@@ -41,7 +40,9 @@ onMounted(() => {
 <section>
   <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Categories</h3>
 
-  <router-link :to="{ name: 'AddCategory'}">Add category</router-link>
+  <router-link :to="{ name: 'AddCategory'}">
+    <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add category</button>
+  </router-link>
 
   <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -73,8 +74,22 @@ onMounted(() => {
                      {{ category.titleUa }}
                 </td>
                 <td class="flex gap-3 px-6 py-4">
-                    <span @click="deleteCategory(category.id)" class="hover:cursor-pointer">X</span>
-                    <router-link :to="{ name: 'ChangeCategory', params: {id:category.id}}">Edit</router-link>
+                    <!-- <span @click="deleteCategory(category.id)" class="hover:cursor-pointer">X</span> -->
+
+
+                    <Icon 
+                      icon="rz:delete-circle" 
+                      class="custom-icon w-[24px] h-[24px] hover:cursor-pointer" 
+                      @click="deleteCategory(category.id)"
+                    />
+
+                    <router-link :to="{ name: 'ChangeCategory', params: {id:category.id}}">
+                      <Icon 
+                        icon="rz:edit-icon" 
+                        class="custom-icon w-[24px] h-[24px] hover:cursor-pointer" 
+                      />
+                    </router-link>
+                    <!-- <router-link :to="{ name: 'ChangeCategory', params: {id:category.id}}">Edit</router-link> -->
                 </td>
             </tr>
         </tbody>
@@ -86,4 +101,5 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
 </style>

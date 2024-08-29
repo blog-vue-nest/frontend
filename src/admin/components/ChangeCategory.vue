@@ -50,9 +50,11 @@ onMounted(() => {
   <div class="p-4 sm:ml-64">
 
   <section class="mt-3">
-    <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Add category</h3>
+    <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Change category</h3>
 
-    <router-link :to="{ name: 'ViewCategories'}">View categories</router-link>
+    <router-link :to="{ name: 'ViewCategories'}">
+      <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">View categories</button>
+    </router-link>
 
     
 

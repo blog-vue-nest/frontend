@@ -115,7 +115,9 @@ const changePost = async () => {
       <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Change post</h3>
 
        <div class="my-6">
-    <router-link :to="{ name: 'ViewPosts'}">View posts</router-link>
+    <router-link :to="{ name: 'ViewPosts'}">
+      <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">View posts</button>
+    </router-link>
   </div>
 
 

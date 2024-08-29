@@ -2,7 +2,7 @@
 import Aside from '../components/Aside.vue';
 import ChangePost from '../components/ChangePost.vue';
 
-import { defineProps } from 'vue';
+// import { defineProps } from 'vue';
 
 const props = defineProps({
   id: {

@@ -91,36 +91,35 @@ onMounted(() => {
 
 
 
-                <div class="flex justify-center mt-6">
+<div class="flex justify-center mt-6">
           
 
 <nav aria-label="Page navigation example">
   <ul class="inline-flex -space-x-px text-sm">
     <li>
-      <a v-if="currentPage > 1" @click="getPosts(--currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+      <a v-if="currentPage > 1" @click="getPosts(--currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray hover:text-dark-gray">Previous</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray">Previous</a>
     </li>
 
 
 
     <li v-if="listOfPages !== null" v-for="page in listOfPages" :key="page">
-      <a v-if="currentPage !== page" @click="getPosts(page)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+      <a v-if="currentPage !== page" @click="getPosts(page)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-dark-gray bg-white border border-light-gray hover:bg-light-gray hover:text-dark-gray">
         {{ page }}
       </a>
-      <a v-else class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+      <a v-else class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-dark-gray bg-white border border-light-gray hover:bg-light-gray hover:text-dark-gray">
         {{ page }}
       </a>
     </li>
 
     
     <li>
-      <a v-if="currentPage < totalPages" @click="getPosts(++currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+      <a v-if="currentPage < totalPages" @click="getPosts(++currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">Next</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">Next</a>
     </li>
   </ul>
 </nav>
-
-        </div>
+</div>
 
 
 
