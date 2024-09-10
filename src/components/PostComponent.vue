@@ -46,7 +46,8 @@ onMounted(() => {
             </div>
             <h3 class="mt-[11px] capitalize font-raleway-700 text-dark text-[17px] leading-[23px] lining-nums proportional-nums
             2xl:mt-[16px] 2xl:text-[24px] 2xl:leading-[32px]">{{ post.titleEn }}</h3>
-              <div v-html="post.descriptionEn" class="current-post-description test mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]"></div>
+              <!-- <div v-html="post.descriptionEn" class="current-post-description mt-[5px] 2xl:mt-[16px] font-roboto-400 text-dark-gray text-[12px] 2xl:text-[16px] leading-[150%]"></div> -->
+               <div v-html="post.descriptionEn" class="current-post-description mt-[5px]"></div>
             <!-- <button class="mt-[14px] 2xl:mt-[19px] capitalize font-roboto-700 text-violet text-[13px] 2xl:text-[18px] leading-[150%] underline">Read more...</button> -->
           </article>
 
@@ -72,7 +73,7 @@ onMounted(() => {
 </template>
 
 <style>
-.current-post-description > h1 {
+/* .current-post-description > h1 {
   font-size: 54px;
   line-height: 120%;
 }
@@ -93,5 +94,35 @@ onMounted(() => {
 
 .current-post-description img {
   margin: 30px auto;
+} */
+
+.current-post-description blockquote {
+  border-left: 4px solid #7C4EE4;
+  padding-left: 16px;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: #555;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+
+.current-post-description blockquote::before {
+  content: "“";
+  font-size: 24px;
+  font-weight: bold;
+  color: #ccc;
+  margin-right: 8px;
+  vertical-align: top;
+}
+
+.current-post-description blockquote::after {
+  content: "”";
+  font-size: 24px;
+  font-weight: bold;
+  color: #ccc;
+  margin-left: 8px;
+  vertical-align: bottom;
 }
 </style>

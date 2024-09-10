@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { formatDate, formatDateUa } from '@/utils/FormatDate';
-// import AddPost from './AddPost.vue';
 
 const posts = ref([]);
 const totalPages = ref(null);
@@ -44,6 +43,7 @@ const deletePost = async (id) => {
       console.error(`Error deleting post`, error);
     }
     alert('Post is deleted');
+    getPosts();
   } else {
     alert('Action is canceled');
   }

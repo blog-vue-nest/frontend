@@ -5,6 +5,33 @@ import axios from 'axios';
 const titleEn = ref('');
 const titleUa = ref('');
 
+
+
+import { useAuthStore } from '@/store/auth.js';
+
+const authStore = useAuthStore();
+
+authStore.signIn("programmboy@gmail.com", "12345678");
+
+const token = localStorage.getItem("token");
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+// const getToken = async () => {
+//   return authStore.signIn("programmboy@gmail.com", "12345678");
+// }
+
+// const setupAxios = async () => {
+//   const token = await getToken();
+//   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+// };
+
+// Вызов функции для установки заголовков
+// setupAxios();
+
+
+
+
+
 const addCategory = async () => {  
   try {
     axios.post(`http://localhost:3000/categories/create-category`, {

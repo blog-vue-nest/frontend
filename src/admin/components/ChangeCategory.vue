@@ -4,6 +4,10 @@ import axios from 'axios';
 
 import { defineProps } from 'vue';
 
+const token = localStorage.getItem("token");
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+
 const props = defineProps({
   categoryId: String
 })
@@ -73,63 +77,8 @@ onMounted(() => {
     </div>
     <button type="submit" class="block mx-auto text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Change category</button>
 
-
-
-
-</form>
-
-</section>
-
-
-
-
-  </div>
-
-
-
-
-  <!-- <div class="p-4 sm:ml-64">
-    <section>
-      <h3 class="mb-8 font-raleway-700 text-center text-[24px]">Change category</h3>
-
-       <div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    ID
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    English Title
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Ukrainian Title
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Action
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="category in categories" class="odd:bg-white even:bg-gray-50 border-b">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    {{ category.id }}
-                </th>
-                <td class="px-6 py-4">
-                  <input v-model="category.titleEn" required>
-                </td>
-                <td class="px-6 py-4">
-                     <input v-model="category.titleUa" required>
-                </td>
-                <td class="px-6 py-4">
-                    <span @click="changeCategory(category.id, category.titleEn, category.titleUa)" class="hover:cursor-pointer">Edit</span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-  </div>
+      </form>
 
     </section>
-    
-  </div> -->
+  </div>
 </template>

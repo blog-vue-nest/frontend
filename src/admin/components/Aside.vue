@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+const logOut = () => {
+   localStorage.removeItem('token');
+}
+</script>
 
 <template>
 <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
@@ -39,6 +43,15 @@
                <span class="flex-1 ms-3 whitespace-nowrap">Posts</span>
             </router-link>
          </li>
+
+         <li>
+            <router-link :to="{ name: 'ViewUsers'}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                  <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
+               </svg>
+               <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+            </router-link>
+         </li>
          <!-- <li>
             <router-link :to="{ name: 'ChangePost'}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
@@ -63,6 +76,15 @@
                   <path d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z"/>
                </svg>
                <span class="flex-1 ms-3 whitespace-nowrap">Exit</span>
+            </router-link>
+         </li>
+
+
+         <li>
+            <router-link @click="logOut" :to="{ name: 'Home'}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+      
+<svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 32 32"><path fill="black" d="M13.063 4c-.874 0-1.647.45-2.188 1.03c-.54.582-.935 1.31-1.28 2.095c-.534 1.21-.91 2.554-1.25 3.813c-1.087.316-2.01.71-2.75 1.187C4.727 12.683 4 13.457 4 14.5c0 .908.553 1.632 1.25 2.156c.593.446 1.324.816 2.188 1.125c.048.234.126.47.218.69c-.843.477-2.178 1.397-3.468 3.156l-.594.844l.844.593l3.28 2.25l-.624 1.25L6.374 28h19.25l-.72-1.438l-.623-1.25l3.283-2.25l.844-.593l-.593-.846c-1.29-1.76-2.626-2.68-3.47-3.156c.093-.222.17-.457.22-.69c.863-.308 1.594-.678 2.187-1.124c.698-.524 1.25-1.248 1.25-2.156c0-1.045-.724-1.817-1.593-2.375c-.742-.477-1.664-.87-2.75-1.188c-.373-1.303-.787-2.67-1.312-3.874c-.34-.775-.715-1.49-1.25-2.062c-.536-.57-1.296-1-2.157-1c-.583 0-1.024.162-1.5.28c-.475.12-.958.22-1.437.22c-.96 0-1.764-.5-2.937-.5zm0 2c.205 0 1.436.5 2.937.5c.75 0 1.42-.15 1.938-.28c.518-.132.913-.22 1-.22c.23 0 .403.072.687.375s.62.843.906 1.5c.545 1.243.96 2.94 1.408 4.5c0-.002.054-.048-.093.03c-.25.137-.772.313-1.407.408c-1.27.19-3 .187-4.437.187c-1.43 0-3.164-.02-4.437-.22c-.636-.097-1.15-.268-1.406-.405c-.078-.042-.107-.026-.125-.03v-.033c.004-.01 0-.02 0-.03l.033-.032a1 1 0 0 0 .124-.438v-.03c.36-1.328.76-2.735 1.25-3.845c.293-.667.61-1.212.906-1.53c.297-.32.5-.407.72-.407zm-4.876 7.094c.226.47.624.844 1.032 1.062c.605.325 1.306.477 2.06.594c1.51.234 3.274.25 4.72.25c1.437 0 3.206.007 4.72-.22c.754-.112 1.45-.26 2.06-.592c.41-.223.807-.618 1.03-1.094c.62.22 1.138.454 1.5.687c.58.376.69.655.69.72c0 .06-.053.25-.47.564s-1.137.674-2.06.968c-1.853.59-4.52.97-7.47.97s-5.62-.38-7.47-.97c-.925-.293-1.645-.654-2.06-.968C6.05 14.75 6 14.56 6 14.5c0-.066.078-.315.656-.688c.363-.233.9-.49 1.532-.718zm2.594 5.47c.33.053.656.142 1 .186c.13.877.816 1.652 1.91 1.72c.84.05 1.79-.348 1.873-1.47c.15.002.288 0 .438 0s.29.002.44 0c.082 1.122 1.032 1.52 1.874 1.47c1.092-.068 1.776-.843 1.906-1.72c.345-.044.67-.133 1-.188l-.095.625c-.308 1.643-1.044 3.17-1.97 4.22c-.923 1.05-2.01 1.61-3.155 1.593c-1.176-.017-2.24-.584-3.156-1.625c-.918-1.04-1.64-2.537-1.97-4.188l-.093-.625zM23 19.998c.372.218 1.35.86 2.47 2.094l-3.032 2.093l-.72.47l.376.78l.28.563H19.22a7.8 7.8 0 0 0 1.436-1.28c1.1-1.25 1.84-2.89 2.25-4.657c.034-.02.06-.043.094-.062zm-14.03.03c.038.024.083.042.124.064c.428 1.745 1.165 3.363 2.25 4.593c.45.51.973.95 1.53 1.313h-3.25l.282-.563l.375-.78l-.716-.47l-3.032-2.093c1.06-1.168 2.023-1.812 2.44-2.063z"/></svg>
+               <span class="flex-1 ms-3 whitespace-nowrap">Log out</span>
             </router-link>
          </li>
       </ul>

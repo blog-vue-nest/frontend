@@ -3,6 +3,9 @@ import './index.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 
+import { createPinia } from 'pinia';
+const pinia = createPinia();
+
 import router from '@/router';
 
 import './assets/iconify/index.ts';
@@ -26,6 +29,7 @@ const app = createApp(App);
 
 app.use(i18n)
 app.use(router)
+app.use(pinia)
 app.component('Icon', Icon)
 // app.component('QuillEditor', QuillEditor);
 app.mount('#app');

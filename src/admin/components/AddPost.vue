@@ -4,8 +4,9 @@ import axios from 'axios';
 
 import QuillWrapper from './QuillWrapper.vue';
 
-// import { QuillEditor } from '@vueup/vue-quill';
-// import '@vueup/vue-quill/dist/vue-quill.snow.css';
+const token = localStorage.getItem("token");
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
 
 
 const editorKey = ref(0); // ref для QuillEditor
@@ -61,7 +62,7 @@ const formData = ref({
 const createPost = async () => {  
   try {
     // console.log('Preview File Path:', previewFilePath.value);
-    
+    const token = await getToken(); // Предполагается, что token получается с помощью этой функции
     axios.post(`http://localhost:3000/posts/create-post`, formData.value);
 
     formData.value = {

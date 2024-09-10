@@ -8,7 +8,7 @@ import { formatDate, formatDateUa } from '@/utils/FormatDate';
 const popularPosts = ref([]);
 const recentPosts = ref([]);
 const recentPost = ref([]);
-const categories = ref([]);
+// const categories = ref([]);
 
 
 const getPopularPosts = async () => {

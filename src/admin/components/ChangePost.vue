@@ -1,7 +1,10 @@
 <script setup>
-import { defineProps, ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import QuillWrapper from './QuillWrapper.vue';
+
+const token = localStorage.getItem("token");
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 const editorKey = ref(0); // ref для QuillEditor
 
