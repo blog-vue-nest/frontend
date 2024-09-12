@@ -83,5 +83,98 @@
       "title": "News Publishing",
       "text": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment."
     }
+  },
+  "AdminPanel": {
+    "Authorization": {
+      "title": "Authorization",
+      "email": "Email",
+      "password": "Password",
+      "button": "Login"
+    },
+    "Aside": {
+      "categories": "Categories",
+      "posts": "Posts",
+      "users": "Users",
+      "exit": "Exit",
+      "logOut": "Log out"
+    },
+    "ViewCategories": {
+      "title": "Categories",
+      "button": "Add category",
+      "id": "ID",
+      "nameEn": "English title",
+      "nameUa": "Ukrainian title",
+      "action": "Action"
+    },
+    "AddCategory": {
+      "title": "Add category",
+      "viewButton": "View categories",
+      "nameEn": "English title",
+      "nameUa": "Ukrainian title",
+      "addButton": "Add category"
+    },
+    "ChangeCategory": {
+      "title": "Change category",
+      "viewButton": "View categories",
+      "nameEn": "English title",
+      "nameUa": "Ukrainian title",
+      "changeButton": "Change category"
+    },
+    "ViewPosts": {
+      "title": "Posts",
+      "addButton": "Add post",
+      "prevButton": "Previous",
+      "nextButton": "Next"
+    },
+    "AddPost": {
+      "title": "Add post",
+      "viewButton": "View posts",
+      "choseCategory": "Chose a category",
+      "nameEn": "English title",
+      "nameUa": "Ukrainian title",
+      "upload": "Upload file",
+      "smallDescriptionEn": "English small description",
+      "smallDescriptionUa": "Ukrainian small description",
+      "smallDescriptionPlaceholder": "Write small description...",
+      "descriptionEn": "English description",
+      "descriptionUa": "Ukrainian description",
+      "addButton": "Add post"
+    },
+    "ChangePost": {
+      "title": "Add post",
+      "viewButton": "View posts",
+      "choseCategory": "Chose a category",
+      "nameEn": "English title",
+      "nameUa": "Ukrainian title",
+      "upload": "Upload file",
+      "smallDescriptionEn": "English small description",
+      "smallDescriptionUa": "Ukrainian small description",
+      "smallDescriptionPlaceholder": "Write small description...",
+      "descriptionEn": "English description",
+      "descriptionUa": "Ukrainian description",
+      "changeButton": "Change post"
+    },
+    "ViewUsers": {
+      "title": "Users",
+      "addButton": "Add user",
+      "name": "Name",
+      "email": "Email",
+      "action": "Action"
+    },
+    "AddUser": {
+      "title": "Add user",
+      "viewButton": "View users",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "addButton": "Add user"
+    },
+    "ChangeUser": {
+      "title": "Change user",
+      "viewButton": "View users",
+      "name": "Name",
+      "email": "Email",
+      "changeButton": "Change user"
+    }
   }
 }

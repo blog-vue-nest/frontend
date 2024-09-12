@@ -88,18 +88,18 @@ const createPost = async () => {
   <div class="p-4 sm:ml-64">
     
 <section>
-  <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Add post</h3>
+  <h3 class="mb-3 font-raleway-700 text-center text-[24px]">{{ $t('AdminPanel.AddPost.title') }}</h3>
 
   <div class="my-6">
     <router-link :to="{ name: 'ViewPosts'}">
-      <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">View posts</button>
+      <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">{{ $t('AdminPanel.AddPost.viewButton') }}</button>
     </router-link>
   </div>
 
 
 <form @submit.prevent="handleSubmit, createPost()">
 
-<label for="categories" class="block mb-2 text-sm font-medium text-dark-gray">Chose a category</label>
+<label for="categories" class="block mb-2 text-sm font-medium text-dark-gray">{{ $t('AdminPanel.AddPost.choseCategory') }}</label>
   <select v-model="formData.categoryId" id="categories" required class="bg-gray-50 border border-gray-300 text-dark-gray text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
     <option v-for="category in categories" :key="category.id" :value="category.id" selected>{{ category.titleEn }} | {{ category.titleUa }}</option>
   </select>
@@ -109,34 +109,34 @@ const createPost = async () => {
 
     <div class="grid gap-6 mt-3 mb-6 md:grid-cols-2">
         <div>
-            <label for="titleEn" class="block mb-2 text-sm font-medium text-gray-900">English title</label>
-            <input v-model="formData.titleEn" type="text" id="titleEn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Title" required />
+            <label for="titleEn" class="block mb-2 text-sm font-medium text-gray-900">{{ $t('AdminPanel.AddPost.nameEn') }}</label>
+            <input v-model="formData.titleEn" type="text" id="titleEn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" :placeholder="$t('AdminPanel.AddPost.nameEn')" required />
         </div>
         <div>
-            <label for="titleUa" class="block mb-2 text-sm font-medium text-gray-900">Ukrainian title</label>
-            <input v-model="formData.titleUa" type="text" id="titleUa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Title" required />
+            <label for="titleUa" class="block mb-2 text-sm font-medium text-gray-900">{{ $t('AdminPanel.AddPost.nameUa') }}</label>
+            <input v-model="formData.titleUa" type="text" id="titleUa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" :placeholder="$t('AdminPanel.AddPost.nameUa')" required />
         </div>
     </div>
 
     <div class="mb-6">   
-      <label class="block mb-2 text-sm font-medium text-dark-gray" for="file_input">Upload file</label>
+      <label class="block mb-2 text-sm font-medium text-dark-gray" for="file_input">{{ $t('AdminPanel.AddPost.upload') }}</label>
       <input :v-model="formData.img" @change="uploadFile" class="block w-full text-sm text-dark-gray border border-dark-gray rounded-lg cursor-pointer bg-light-gray focus:outline-none" id="file_input" type="file" required />
       <img :src="previewFilePath" alt="" class="w-100 mt-2">
     </div> 
 
     <div class="mb-6">
-      <label for="smallDescriptionEn" class="block mb-2 text-sm font-medium text-dark-gray">English small description</label>
-      <textarea v-model="formData.smallDescriptionEn" id="smallDescriptionEn" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write small description..."></textarea>
+      <label for="smallDescriptionEn" class="block mb-2 text-sm font-medium text-dark-gray">{{ $t('AdminPanel.AddPost.smallDescriptionEn') }}</label>
+      <textarea v-model="formData.smallDescriptionEn" id="smallDescriptionEn" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" :placeholder="$t('AdminPanel.AddPost.smallDescriptionPlaceholder')"></textarea>
     </div>
 
     <div class="mb-6">
-      <label for="smallDescriptionUa" class="block mb-2 text-sm font-medium text-dark-gray">Ukrainian small description</label>
-      <textarea v-model="formData.smallDescriptionUa" id="smallDescriptionUa" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write small description..."></textarea>
+      <label for="smallDescriptionUa" class="block mb-2 text-sm font-medium text-dark-gray">{{ $t('AdminPanel.AddPost.smallDescriptionUa') }}</label>
+      <textarea v-model="formData.smallDescriptionUa" id="smallDescriptionUa" required rows="4" class="resize-none block p-2.5 w-full text-sm text-dark-gray bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" :placeholder="$t('AdminPanel.AddPost.smallDescriptionPlaceholder')"></textarea>
     </div>
 
 
     <div class="mb-6">
-      <label for="descriptionEn">English description</label>
+      <label for="descriptionEn">{{ $t('AdminPanel.AddPost.descriptionEn') }}</label>
       <div class="mt-3">
         <QuillWrapper 
           id="descriptionEn" 
@@ -148,7 +148,7 @@ const createPost = async () => {
     </div>
 
     <div class="mb-6">
-      <label for="descriptionUa">Ukrainian description</label>
+      <label for="descriptionUa">{{ $t('AdminPanel.AddPost.descriptionUa') }}</label>
       <div class="mt-3">
         <QuillWrapper 
           id="descriptionUa" 
@@ -172,7 +172,7 @@ const createPost = async () => {
 
 
 
-    <button type="submit" class="block mx-auto text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add post</button>
+    <button type="submit" class="block mx-auto text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">{{ $t('AdminPanel.AddPost.addButton') }}</button>
 </form>
 
 

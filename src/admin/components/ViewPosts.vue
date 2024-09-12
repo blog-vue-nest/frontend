@@ -55,11 +55,11 @@ const deletePost = async (id) => {
 
   <div class="p-4 sm:ml-64">
     <section>
-      <h3 class="mb-8 font-raleway-700 text-center text-[24px]">Posts</h3>
+      <h3 class="mb-8 font-raleway-700 text-center text-[24px]">{{ $t('AdminPanel.ViewPosts.title') }}</h3>
 
       <div class="my-6">
         <router-link :to="{ name: 'AddPost'}">
-          <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add post</button>
+          <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">{{ $t('AdminPanel.ViewPosts.addButton') }}</button>
         </router-link>
       </div>
 
@@ -134,8 +134,8 @@ const deletePost = async (id) => {
 <nav aria-label="Page navigation example">
   <ul class="inline-flex -space-x-px text-sm">
     <li>
-      <a v-if="currentPage > 1" @click="getPosts(--currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray hover:text-dark-gray">Previous</a>
-      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray">Previous</a>
+      <a v-if="currentPage > 1" @click="getPosts(--currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray hover:text-dark-gray">{{ $t('AdminPanel.ViewPosts.prevButton') }}</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray">{{ $t('AdminPanel.ViewPosts.prevButton') }}</a>
     </li>
 
 
@@ -151,8 +151,8 @@ const deletePost = async (id) => {
 
     
     <li>
-      <a v-if="currentPage < totalPages" @click="getPosts(++currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">Next</a>
-      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">Next</a>
+      <a v-if="currentPage < totalPages" @click="getPosts(++currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">{{ $t('AdminPanel.ViewPosts.nextButton') }}</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">{{ $t('AdminPanel.ViewPosts.nextButton') }}</a>
     </li>
   </ul>
 </nav>

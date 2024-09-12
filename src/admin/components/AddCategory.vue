@@ -50,10 +50,10 @@ const addCategory = async () => {
   <div class="p-4 sm:ml-64">
 
   <section class="mt-3">
-    <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Add category</h3>
+    <h3 class="mb-3 font-raleway-700 text-center text-[24px]">{{ $t('AdminPanel.AddCategory.title') }}</h3>
 
     <router-link :to="{ name: 'ViewCategories'}">
-      <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">View categories</button>
+      <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">{{ $t('AdminPanel.AddCategory.viewButton') }}</button>
     </router-link>
 
     
@@ -74,15 +74,15 @@ const addCategory = async () => {
 
       <div class="grid gap-6 mt-3 mb-6 md:grid-cols-2">
         <div>
-            <label for="titleEn" class="block mb-2 text-sm font-medium text-gray-900">English title</label>
-            <input v-model="titleEn" type="text" id="titleEn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="English title" required />
+          <label for="titleEn" class="block mb-2 text-sm font-medium text-gray-900">{{ $t('AdminPanel.AddCategory.nameEn') }}</label>
+          <input v-model="titleEn" type="text" id="titleEn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" :placeholder="$t('AdminPanel.AddCategory.nameEn')" required />
         </div>
         <div>
-            <label for="titleUa" class="block mb-2 text-sm font-medium text-gray-900">Ukrainian title</label>
-            <input v-model="titleUa" type="text" id="titleUa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ukrainian title" required />
+          <label for="titleUa" class="block mb-2 text-sm font-medium text-gray-900">{{ $t('AdminPanel.AddCategory.nameUa') }}</label>
+          <input v-model="titleUa" type="text" id="titleUa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" :placeholder="$t('AdminPanel.AddCategory.nameUa')" required />
         </div>
     </div>
-    <button type="submit" class="block mx-auto text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add category</button>
+    <button type="submit" class="block mx-auto text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">{{ $t('AdminPanel.AddCategory.addButton') }}</button>
 
 
 

@@ -43,10 +43,10 @@ const deleteUser = async (id) => {
   <div class="p-4 sm:ml-64">
     
 <section>
-  <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Users</h3>
+  <h3 class="mb-3 font-raleway-700 text-center text-[24px]">{{ $t('AdminPanel.ViewUsers.title') }}</h3>
 
   <router-link :to="{ name: 'AddUser'}">
-    <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add user</button>
+    <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">{{ $t('AdminPanel.ViewUsers.addButton') }}</button>
   </router-link>
 
   <div class="relative overflow-x-auto">
@@ -57,13 +57,13 @@ const deleteUser = async (id) => {
                     ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Name
+                    {{ $t('AdminPanel.ViewUsers.name') }}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Email
+                    {{ $t('AdminPanel.ViewUsers.email') }}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
+                    {{ $t('AdminPanel.ViewUsers.action') }}
                 </th>
             </tr>
         </thead>

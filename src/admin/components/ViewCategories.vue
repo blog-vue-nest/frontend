@@ -40,10 +40,10 @@ onMounted(() => {
   <div class="p-4 sm:ml-64">
     
 <section>
-  <h3 class="mb-3 font-raleway-700 text-center text-[24px]">Categories</h3>
+  <h3 class="mb-3 font-raleway-700 text-center text-[24px]">{{ $t('AdminPanel.ViewCategories.title') }}</h3>
 
   <router-link :to="{ name: 'AddCategory'}">
-    <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add category</button>
+    <button type="submit" class="block mb-3 text-white bg-violet focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">{{ $t('AdminPanel.ViewCategories.button') }}</button>
   </router-link>
 
   <div class="relative overflow-x-auto">
@@ -51,16 +51,16 @@ onMounted(() => {
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    ID
+                    {{ $t('AdminPanel.ViewCategories.id') }}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    English Title
+                    {{ $t('AdminPanel.ViewCategories.nameEn') }}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Ukrainian Title
+                    {{ $t('AdminPanel.ViewCategories.nameUa') }}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
+                    {{ $t('AdminPanel.ViewCategories.action') }}
                 </th>
             </tr>
         </thead>
