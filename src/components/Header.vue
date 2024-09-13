@@ -1,6 +1,22 @@
 <script setup>
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { Icon } from '@iconify/vue';
 import { RouterLink } from 'vue-router';
+
+// const language = useI18n();
+
+// const currentLanguage = ref(language.locale.value);
+
+const { locale } = useI18n();
+
+const language = ref(locale.value);
+
+if (localStorage.getItem('language') && (localStorage.getItem('language') === 'en' || localStorage.getItem('language') === 'ua')) {
+  language.value = localStorage.getItem('language');
+  locale.value = localStorage.getItem('language');
+}
+
 
 const dropdown = () => {
   const dropdownButton = document.getElementById('dropdown');
@@ -17,6 +33,8 @@ const dropdown = () => {
 const closeList = () => {
   const dropdownButton = document.getElementById('dropdown');
   const arrow = document.getElementById('arrow');
+
+  localStorage.setItem('language', language.value);
 
   dropdownButton.classList.add('hidden');
   arrow.style.transform = 'rotate(360deg)';
@@ -50,17 +68,17 @@ const closeList = () => {
           <img src="../assets/img/search-minus.svg" alt="Search" class="w-[16px] h-[16px] 2xl:h-[22px] 2xl:w-[22px]">
 
 
-          <div class="relative">
+<!-- <div class="relative">
 
 <button id="dropdownDefaultButton" @click="dropdown()" class="bg-violet font-raleway-600 text-white text-[12px] text-nowrap leading-[150%] px-[35px] py-[12px] rounded-[6px]
             2xl:text-[16px] 2xl:px-[48px] 2xl-[py-16px] 2xl:rounded-[8px] text-center inline-flex items-center outline-none" type="button">
   {{ $t('HeaderBlock.language.title') }}<svg id="arrow" class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
 </svg>
-</button>
+</button> -->
 
 <!-- Dropdown menu -->
-<div id="dropdown" class="absolute top-[50px] z-20 hidden w-auto bg-white rounded-lg shadow">
+<!-- <div id="dropdown" class="absolute top-[50px] z-20 hidden w-auto bg-white rounded-lg shadow">
     <ul class="py-2 text-sm text-gray-700">
       <li @click="$i18n.locale = 'en', closeList()" class="flex items-center justify-start gap-2 px-4 py-2 hover:cursor-pointer">
         <Icon icon="rz:flag-en" class="w-[32px] h-[32px] 2xl:w-[44px] 2xl:h-[44px]" />
@@ -73,13 +91,46 @@ const closeList = () => {
     </ul>
 </div>
 
-          </div>
+          </div> -->
 
 
           <router-link :to="{name: 'Contact'}">
             <button class="capitalize bg-violet font-raleway-600 text-white text-[12px] text-nowrap leading-[150%] px-[35px] py-[12px] rounded-[6px]
             2xl:text-[16px] 2xl:px-[48px] 2xl-[py-16px] 2xl:rounded-[8px]">{{ $t('HeaderBlock.contact') }}</button>
           </router-link>
+
+          <div class="relative">
+
+<button v-if="language === 'en'" id="dropdownDefaultButton" @click="dropdown()" class="bg-violet font-raleway-600 text-white text-[12px] text-nowrap leading-[150%] px-[12px] py-[6px] rounded-[6px]
+            2xl:text-[16px] 2xl:px-[14px] 2xl:rounded-[8px] text-center inline-flex items-center outline-none" type="button">
+   <Icon icon="rz:flag-en" class="w-[30px] h-[30px] 2xl:w-[36px] 2xl:h-[36px]" />
+   <svg id="arrow" class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+</svg>
+</button>
+
+<button v-else-if="language === 'ua'" id="dropdownDefaultButton" @click="dropdown()" class="bg-violet font-raleway-600 text-white text-[12px] text-nowrap leading-[150%] px-[12px] py-[6px] rounded-[6px]
+            2xl:text-[16px] 2xl:px-[14px] 2xl:rounded-[8px] text-center inline-flex items-center outline-none" type="button">
+   <Icon icon="rz:flag-ua" class="w-[30px] h-[30px] 2xl:w-[36px] 2xl:h-[36px]" /> 
+   <svg id="arrow" class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+</svg>
+</button>
+
+<div id="dropdown" class="absolute top-[50px] z-20 hidden w-auto bg-white rounded-lg shadow">
+    <ul class="py-2 text-sm text-gray-700">
+      <li @click="$i18n.locale = 'en', language = 'en', closeList()" class="flex items-center justify-start gap-2 px-4 py-2 hover:cursor-pointer">
+        <Icon icon="rz:flag-en" class="w-[32px] h-[32px] 2xl:w-[44px] 2xl:h-[44px]" />
+        <a class="block font-raleway-500 text-dark text-[14px] leading-[150%] 2xl:text-[16px]">{{ $t('HeaderBlock.language.english') }}</a>
+      </li>
+      <li @click="$i18n.locale = 'ua', language = 'ua', closeList()" class="flex items-center gap-2 px-4 py-2 hover:cursor-pointer">
+        <Icon icon="rz:flag-ua" class="w-[32px] h-[32px] 2xl:w-[44px] 2xl:h-[44px]" />
+        <a class="block font-raleway-500 text-dark text-[14px] leading-[150%] 2xl:text-[16px]">{{ $t('HeaderBlock.language.ukrainian') }}</a>
+      </li>
+    </ul>
+</div>
+
+</div>
 
 
           <router-link :to="{name: 'ViewCategories'}">Admin</router-link>

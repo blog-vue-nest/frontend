@@ -20,7 +20,7 @@ export default {
     },
     container: {
       center: true,
-      padding: 0
+      padding: "1rem"
     },
     screens: {
       'sm': '375px',
