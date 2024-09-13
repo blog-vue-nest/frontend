@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import Cookies from 'js-cookie';
 import { Icon } from '@iconify/vue';
 import { RouterLink } from 'vue-router';
 
@@ -12,9 +13,9 @@ const { locale } = useI18n();
 
 const language = ref(locale.value);
 
-if (localStorage.getItem('language') && (localStorage.getItem('language') === 'en' || localStorage.getItem('language') === 'ua')) {
-  language.value = localStorage.getItem('language');
-  locale.value = localStorage.getItem('language');
+if (Cookies.get('language') && (Cookies.get('language') === 'en' || Cookies.get('language') === 'ua')) {
+  language.value = Cookies.get('language');
+  locale.value = Cookies.get('language');
 }
 
 
@@ -34,7 +35,7 @@ const closeList = () => {
   const dropdownButton = document.getElementById('dropdown');
   const arrow = document.getElementById('arrow');
 
-  localStorage.setItem('language', language.value);
+  Cookies.set('language', language.value);
 
   dropdownButton.classList.add('hidden');
   arrow.style.transform = 'rotate(360deg)';
