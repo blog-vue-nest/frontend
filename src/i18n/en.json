@@ -41,7 +41,9 @@
   "BlogsBlock": {
     "name": "OUR BLOGS",
     "title": "Find our all blogs from here",
-    "describe": "Our blogs are written from very research research and well known writers writers so that  we can provide you the best blogs and articles articles for you to read them all along"
+    "describe": "Our blogs are written from very research research and well known writers writers so that  we can provide you the best blogs and articles articles for you to read them all along",
+    "prevButton": "Previous",
+    "nextButton": "Next"
   },
   "Contact": {
     "title": "Get in Touch",

@@ -97,8 +97,8 @@ onMounted(() => {
 <nav aria-label="Page navigation example">
   <ul class="inline-flex -space-x-px text-sm">
     <li>
-      <a v-if="currentPage > 1" @click="getPosts(--currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray hover:text-dark-gray">Previous</a>
-      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray">Previous</a>
+      <a v-if="currentPage > 1" @click="getPosts(--currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray hover:text-dark-gray">{{ $t('BlogsBlock.prevButton') }}</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-e-0 border-light-gray rounded-s-lg hover:bg-light-gray">{{ $t('BlogsBlock.prevButton') }}</a>
     </li>
 
 
@@ -114,8 +114,8 @@ onMounted(() => {
 
     
     <li>
-      <a v-if="currentPage < totalPages" @click="getPosts(++currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">Next</a>
-      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">Next</a>
+      <a v-if="currentPage < totalPages" @click="getPosts(++currentPage)" class="hover:cursor-pointer flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">{{ $t('BlogsBlock.nextButton') }}</a>
+      <a v-else class="hover:cursor-not-allowed flex items-center justify-center px-3 h-8 ms-0 leading-tight text-dark-gray bg-white border border-light-gray rounded-e-lg hover:bg-light-gray">{{ $t('BlogsBlock.nextButton') }}</a>
     </li>
   </ul>
 </nav>
